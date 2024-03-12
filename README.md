@@ -10,3 +10,6 @@ This project is an exercise in logic flow, function construction, coding with a 
 
 ## 3-5-24
 * Added second attempt/version.
+
+## 3-12-24
+* Added third attempt/version. Program still contains broken winning conditions.
