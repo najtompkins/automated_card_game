@@ -24,4 +24,13 @@ This project is an exercise in logic flow, function construction, coding with a 
 * Bugs
     - Comparing cards does not operate as expected. PyDeck library's methods are returning results such as the Jack of Clubs winning against the Ace of Hearts (Round 81 in last cell output.) Will utilize custom card rankings or other method of comparisons inn future versions.
 
+## 4-2-24
+* Added Sixth version. (fifth discarded) Program is much more functional when running the newly-functionized set_up_game_environment() and play_game() cells.
+    - Comparison bug solved by using a dictionary to get card value based on the returned Card.value property of the Card object.
+    - Running the set_up_game_environment() function generates 3 Pandas dataframes that are populated thorughout the runtime of the play_game() function
+    - Utilized global variables to access and modify data points thoughout the numerous functions involved in game logic, but more importantly it was for the purpose of Game and Player Statistics data generation.
+    - Over 40+ data points are generated per round.
+
+* Bugs
+    - Some values in rows of data (particularly around War rounds) don't match up to the expected values. Data is not eggregiously compromised but some metrics as iron-clad as they should be. 
 
