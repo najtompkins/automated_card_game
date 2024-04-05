@@ -1,6 +1,6 @@
 # Automated Card Game
 
-Building the card game 'War' in Python. Practice in Python development.
+Building the card game 'War' in Python. Practice in Python (and VBA) development.
 
 ## The Purpose
 
@@ -11,16 +11,16 @@ This project is an exercise in logic flow, function construction, coding with a 
 ### Updates
 
 #### 3-1-24
-- Added first attempt/version. (Program runs infinitely)
+- Added first attempt/version. [war_v1.ipynb](./ipynb%20files/war_v1.ipynb) (Program runs infinitely)
 
 #### 3-5-24
-- Added second attempt/version.
+- Added second attempt/version. [war_v2.ipynb](./ipynb%20files/war_v2.ipynb)
 
 #### 3-12-24
-- Added third attempt/version. Program still contains broken winning conditions.
+- Added third attempt/version. Program still contains broken winning conditions. [war_v3.ipynb](./ipynb%20files/war_v3.ipynb)
 
 #### 3-15-24
-- Added fourth version. Program is finally functional when running final cell (Simulating the game.)
+- Added fourth version. Program is finally functional when running final cell (Simulating the game.) [war_v4.ipynb](./ipynb%20files/war_v4.ipynb)
   - Win conditions fixed. Greatly utilized 'break' feature of all logic loops to avoid running unnecessary and conflicting code.
   - Cards have permanence, i.e., they exist in one of six stacks and nowhere else, accounting for each at the end of every round by totaling all cards in both players' possession.
   - Added missing discard-to-hand function absent in prior versions, refilling the players' hand when they are out of cards.
@@ -30,7 +30,7 @@ This project is an exercise in logic flow, function construction, coding with a 
 - Comparing cards does not operate as expected. PyDeck library's methods are returning results such as the Jack of Clubs winning against the Ace of Hearts (Round 81 in last cell output.) Will utilize custom card rankings or other methods of comparison in future versions.
 
 #### 4-2-24
-- Added Sixth version. (fifth discarded) Program is much more functional when running the newly-functionized `set_up_game_environment()` and `play_game()` cells.
+- Added Sixth version. (fifth discarded) Program is much more functional when running the newly-functionized `set_up_game_environment()` and `play_game()` cells. [war_v6.ipynb](./ipynb%20files/war_v6.ipynb)
   - Comparison bug solved by using a dictionary to get card value based on the returned `Card.value` property of the Card object.
   - Running the `set_up_game_environment()` function generates 3 Pandas dataframes that are populated throughout the runtime of the `play_game()` function.
   - Utilized global variables to access and modify data points throughout the numerous functions involved in game logic, but more importantly, it was for the purpose of Game and Player Statistics data generation.
@@ -40,7 +40,7 @@ This project is an exercise in logic flow, function construction, coding with a 
 - Some values in rows of data (particularly around War rounds) don't match up to the expected values. Data is not egregiously compromised, but some metrics are not as iron-clad as they should be.
 
 #### 4-5-24
-- Added Excel Version 1. For the purpose of learning programmatic development within the Visual Basic for Applications (VBA) programming language, I took some time to develop this same Python War simulator in Excel. The added visual elements of the worksheets help the end-user visualize game statistics and, depending on how fast your machine is (I developed a lot of game logic on a laptop running Windows 10 that was bought in 2007!), you can also see the shuffling/dealing/round processing as it happens. *Macros must be enabled to run this file.*
+- Added Excel Version 1. For the purpose of learning programmatic development within the Visual Basic for Applications (VBA) programming language, I took some time to develop this same Python War simulator in Excel. The added visual elements of the worksheets help the end-user visualize game statistics and, depending on how fast your machine is (I developed a lot of game logic on a laptop running Windows 10 that was bought in 2007!), you can also see the shuffling/dealing/round processing as it happens. *Macros must be enabled to run this file.* [WarCardGame.xlsm](./excel_files/WarCardGame.xlsm)
   - Comparison operations are performed using Index/Match functions within the VBA IDE, using BackEnd arrays as reference for card values.
   - Program operates on back-end/hidden worksheets and then displays results on the front-end/accessible worksheets.
   - Utilized global variables to access and modify data points throughout the numerous functions involved in game logic, but more importantly, it was for the purpose of Game and Player Statistics data generation.
