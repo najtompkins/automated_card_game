@@ -3,7 +3,6 @@ from time import sleep # For optional delay between rounds
 # from IPython.display import clear_output # To Clear Jupyter cell outputs
 import pandas as pd
 import streamlit as st
-import matplotlib.pyplot as plt
 import plotly.graph_objects as go
 import warnings
 
