@@ -704,14 +704,14 @@ if st.session_state.first_game == True:
 
 def play_war(sleepy_time = 0.2):
     # result = None
-    print(f"At the beginning of found {st.session_state.Data_Round_Number}, result is: ({st.session_state.result}) ")
+    # print(f"At the beginning of found {st.session_state.Data_Round_Number}, result is: ({st.session_state.result}) ")
     # st.session_state.playing_game_increment = 1
     while st.session_state.playing_game_increment > 0:
         # label the round
         st.session_state.Data_Round_Number = int(st.session_state.Data_Round_Number) + 1
         war_result = None
         st.session_state.Local_War_Count = 0
-        print(f"Round {st.session_state.Data_Round_Number}")
+        # print(f"Round {st.session_state.Data_Round_Number}")
         # print("\/\/\/\/\/\/\/\/\/\/\/\/\/")
         
         # deal the cards
@@ -728,20 +728,20 @@ def play_war(sleepy_time = 0.2):
             discard_result_1 = empty_discard_pile(st.session_state.player_1_hand, st.session_state.player_1_discard)
             discard_result_2 = empty_discard_pile(st.session_state.player_2_hand, st.session_state.player_2_discard)
             if discard_result_1 == 10:
-                print("Player 2 Wins")
+                # print("Player 2 Wins")
                 break
             elif discard_result_2 == 10:
-                print("Player 1 Wins")
+                # print("Player 1 Wins")
                 break
             elif discard_result_1 == None and discard_result_2 == None:
                 deal_1_result = deal(st.session_state.player_1_hand, st.session_state.player_1_war, 1)
                 deal_2_result = deal(st.session_state.player_2_hand, st.session_state.player_2_war, 1)
 
             elif discard_result_1 == None or discard_result_2 == None:
-                print("Something went wrong. Both players ran out of cards, were dealt back their discards, but did not continue.")
+                # print("Something went wrong. Both players ran out of cards, were dealt back their discards, but did not continue.")
                 break
             else:
-                print("Something went wrong. Both players ran out of cards, but did not continue.")
+                # print("Something went wrong. Both players ran out of cards, but did not continue.")
                 break
 
         # Check if Player 1 is out of cards but not Player 2

@@ -1,51 +1,40 @@
 # Automated Card Game
 
-Building the card game 'War' in Python. Practice in Python (and VBA) development.
+Explore the classic card game 'War' reimagined in Python and Visual Basic for Applications (VBA), featuring implementations both as a Streamlit web app and an Excel-based version!
 
-## The Purpose
+You can play the game, or contiue reading about the project. [Play Now!](nathansautomatedcardgame.streamlit.app)
 
-This project is an exercise in logic flow, function construction, coding with a definitive end-product in mind. I aim to develop a single script that will simulate the 'war' card game between two players using the PyDealer library for card and deck classes. This script uses custom functions for dealing, simulating a war, and once one player has run out of cards, declaring/outputting a winner.
+## Overview
 
----
+Originally designed as a personal coding challenge, this project evolved into a robust application developed in both Python and VBA. The goal was to create a versatile simulation of the 'War' card game that could run on different platforms using the PyDealer library for efficient card management where Python is used, and custom card handling where VBA is utilized. Enjoy the journey from a simple console application to a fully-interactive web-based game, as well as a unique Excel adaptation!
 
-### Updates
+### Project Versions
 
-#### 3-1-24
-- Added first attempt/version. [war_v1.ipynb](./ipynb%20files/war_v1.ipynb) (Program runs infinitely)
+1. **Python Implementation**: Explore the Jupyter Notebook version of 'War' - [View Notebook](./ipynb%20files/war_v6.ipynb). This version uses custom functions for dealing cards, handling comparisons, wars, data generation/reporting and declaring a winner after any number of game rounds.
+2. **Excel VBA Version**: Dive into the Excel adaptation of 'War' where game logic and visual feedback are merged - [Explore Excel Version](./excel_files/WarCardGame.xlsm). This version highlights the adaptability of VBA in creating interactive, data-rich user experiences, animations, and dashboards.
+3. **Streamlit Web App**: Experience the game in a modern web application format, accessible from any device - [Play Now](nathansautomatedcardgame.streamlit.app). This version is a testament to the flexibility and power of converting a traditional Python application into an engaging web experience.
 
-#### 3-5-24
-- Added second attempt/version. [war_v2.ipynb](./ipynb%20files/war_v2.ipynb)
+### Development Journey
+*Please note that while the three versions of this application are available to you, these are minimally viable products, meaning that they are functional but not perfect. As I continue development, these programs will be refined and more stable. Thank you for playing my game!*
 
-#### 3-12-24
-- Added third attempt/version. Program still contains broken winning conditions. [war_v3.ipynb](./ipynb%20files/war_v3.ipynb)
 
-#### 3-15-24
-- Added fourth version. Program is finally functional when running final cell (Simulating the game.) [war_v4.ipynb](./ipynb%20files/war_v4.ipynb)
-  - Win conditions fixed. Greatly utilized 'break' feature of all logic loops to avoid running unnecessary and conflicting code.
-  - Cards have permanence, i.e., they exist in one of six stacks and nowhere else, accounting for each at the end of every round by totaling all cards in both players' possession.
-  - Added missing discard-to-hand function absent in prior versions, refilling the players' hand when they are out of cards.
-  - Numerous print statements across all functions added for debugging ease.
+#### Initial Exploration
+- **March 1, 2024**: First iteration deployed. The program ran indefinitely, highlighting the need for refined win conditions. [View Version 1](./ipynb%20files/war_v1.ipynb)
 
-##### Bugs
-- Comparing cards does not operate as expected. PyDeck library's methods are returning results such as the Jack of Clubs winning against the Ace of Hearts (Round 81 in last cell output.) Will utilize custom card rankings or other methods of comparison in future versions.
+#### Refinements and Debugging
+- **March 5, 2024**: Introduced a more structured game flow. [View Version 2](./ipynb%20files/war_v2.ipynb)
+- **March 12, 2024**: Addressed issues in game logic, still perfecting the win conditions. [View Version 3](./ipynb%20files/war_v3.ipynb)
+- **March 15, 2024**: Achieved a fully functional game with robust handling of game states and card management. [View Version 4](./ipynb%20files/war_v4.ipynb)
 
-#### 4-2-24
-- Added Sixth version. (fifth discarded) Program is much more functional when running the newly-functionized `set_up_game_environment()` and `play_game()` cells. [war_v6.ipynb](./ipynb%20files/war_v6.ipynb)
-  - Comparison bug solved by using a dictionary to get card value based on the returned `Card.value` property of the Card object.
-  - Running the `set_up_game_environment()` function generates 3 Pandas dataframes that are populated throughout the runtime of the `play_game()` function.
-  - Utilized global variables to access and modify data points throughout the numerous functions involved in game logic, but more importantly, it was for the purpose of Game and Player Statistics data generation.
-  - Over 40+ data points are generated per round and populated on the GameData worksheet.
+#### Advanced Enhancements
+- **April 2, 2024**: Launched a highly optimized version, integrating sophisticated data structures and analytics. [View Version 6](./ipynb%20files/war_v6.ipynb)
 
-##### Bugs
-- Some values in rows of data (particularly around War rounds) don't match up to the expected values. Data is not egregiously compromised, but some metrics are not as iron-clad as they should be.
+#### Diversification into Excel
+- **April 5, 2024**: Unveiled the Excel version, leveraging VBA for dynamic gameplay and visual statistics. [Explore Excel Version](./excel_files/WarCardGame.xlsm)
 
-#### 4-5-24
-- Added Excel Version 1. For the purpose of learning programmatic development within the Visual Basic for Applications (VBA) programming language, I took some time to develop this same Python War simulator in Excel. The added visual elements of the worksheets help the end-user visualize game statistics and, depending on how fast your machine is (I developed a lot of game logic on a laptop running Windows 10 that was bought in 2007!), you can also see the shuffling/dealing/round processing as it happens. *Macros must be enabled to run this file.* [WarCardGame.xlsm](./excel_files/WarCardGame.xlsm)
-  - Comparison operations are performed using Index/Match functions within the VBA IDE, using BackEnd arrays as reference for card values.
-  - Program operates on back-end/hidden worksheets and then displays results on the front-end/accessible worksheets.
-  - Utilized global variables to access and modify data points throughout the numerous functions involved in game logic, but more importantly, it was for the purpose of Game and Player Statistics data generation.
-  - Nearly 40 data points are generated per round.
+#### Cloud-Based Innovation
+- **April 10, 2024**: Released the Streamlit web version, enhancing accessibility and interactive capabilities. [Play Now](nathansautomatedcardgame.streamlit.app)
 
-##### Bugs
-- This version of the program was developed on the Windows 10/11 operating systems running Microsoft Office/Excel 365. Due to this, when running on MacOS Sonoma 14.4, a bug halts execution when initializing a variable. Experimentation proves that when the offending line is found in debug mode in the IDE, simply continuing the application will not result in any more issues.
-- This version of the program is simply a proof-of-concept. While it is a fully functioning program, it still encounters errors if the expected sequence of events is not followed properly. Error handling, to some extent, is implemented, but is not comprehensive.
+### Lessons Learned
+
+Each version of the project brought new insights into application design, user interaction, logical processes, and the robustness of game mechanics across platforms. This journey from a simple console application to an interactive web experience showcases the evolution of software development through practical implementation.
