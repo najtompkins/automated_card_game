@@ -2,8 +2,6 @@
 
 Explore the classic card game 'War' reimagined in Python and Visual Basic for Applications (VBA), featuring implementations both as a Streamlit web app and an Excel-based version!
 
-You can play the game, or contiue reading about the project. 
-
 ## Overview
 
 Originally designed as a personal coding challenge, this project evolved into a robust application developed in both Python and VBA. The goal was to create a versatile simulation of the 'War' card game that could run on different platforms using the PyDealer library for efficient card management where Python is used, and custom card handling where VBA is utilized. Enjoy the journey from a simple console application to a fully-interactive web-based game, as well as a unique Excel adaptation!
