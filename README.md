@@ -1,4 +1,4 @@
-# Automated Card Game [Play Now!](nathansautomatedcardgame.streamlit.app)
+# Automated Card Game [Play Now!](https://nathansautomatedcardgame.streamlit.app)
 
 Explore the classic card game 'War' reimagined in Python and Visual Basic for Applications (VBA), featuring implementations both as a Streamlit web app and an Excel-based version!
 
@@ -10,7 +10,7 @@ Originally designed as a personal coding challenge, this project evolved into a 
 
 1. **Python Implementation**: Explore the Jupyter Notebook version of 'War' - [View Notebook](./ipynb%20files/war_v6.ipynb). This version uses custom functions for dealing cards, handling comparisons, wars, data generation/reporting and declaring a winner after any number of game rounds.
 2. **Excel VBA Version**: Dive into the Excel adaptation of 'War' where game logic and visual feedback are merged - [Explore Excel Version](./excel_files/WarCardGame.xlsm). This version highlights the adaptability of VBA in creating interactive, data-rich user experiences, animations, and dashboards.
-3. **Streamlit Web App**: Experience the game in a modern web application format, accessible from any device - [Play Now](nathansautomatedcardgame.streamlit.app). This version is a testament to the flexibility and power of converting a traditional Python application into an engaging web experience.
+3. **Streamlit Web App**: Experience the game in a modern web application format, accessible from any device - [Play Now](https://nathansautomatedcardgame.streamlit.app). This version is a testament to the flexibility and power of converting a traditional Python application into an engaging web experience.
 
 ### Development Journey
 *Please note that while the three versions of this application are available to you, these are minimally viable products, meaning that they are functional but not perfect. As I continue development, these programs will be refined and more stable. Thank you for playing my game!*
@@ -31,7 +31,7 @@ Originally designed as a personal coding challenge, this project evolved into a 
 - **April 5, 2024**: Unveiled the Excel version, leveraging VBA for dynamic gameplay and visual statistics. [Explore Excel Version](./excel_files/WarCardGame.xlsm)
 
 #### Cloud-Based Innovation
-- **April 10, 2024**: Released the Streamlit web version, enhancing accessibility and interactive capabilities. [Play Now](nathansautomatedcardgame.streamlit.app)
+- **April 10, 2024**: Released the Streamlit web version, enhancing accessibility and interactive capabilities. [Play Now](https://nathansautomatedcardgame.streamlit.app)
 
 ### Lessons Learned
 
