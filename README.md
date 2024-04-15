@@ -33,6 +33,10 @@ Originally designed as a personal coding challenge, this project evolved into a 
 #### Cloud-Based Innovation
 - **April 10, 2024**: Released the Streamlit web version, enhancing accessibility and interactive capabilities. [Play Now](https://nathansautomatedcardgame.streamlit.app)
 
+#### Refined Page Loading
+- **April 14, 2024**: Fixed bugs when navigating through the Streamlit application's pages and included navigation buttons at the top of the Introduction page for easy navigation on mobile interfaces.
+
+
 ### Lessons Learned
 
 Each version of the project brought new insights into application design, user interaction, logical processes, and the robustness of game mechanics across platforms. This journey from a simple console application to an interactive web experience showcases the evolution of software development through practical implementation.

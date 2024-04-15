@@ -1,22 +1,40 @@
 import streamlit as st
 
+
+# """
+# This file is the entry-point to the application. The page presents the user with a brief overview of this application, the development of the project, and the rules of the game.
+# From here the user can navigate to different pages of the application to play the game.
+# Future Versions should link to the pages using buttons at the top of the page as well as in the sidebar for the ease of navigation on mobile phones.
+# """
+
+# Establish session state obejct to store which part of the page the user is viewing. Default is Introduction.
 if 'intro_choice' not in st.session_state:
     st.session_state.intro_choice = 'Introduction'
 
+# Main Title/introduction for the application/page
 st.markdown("<h1 style='text-align:center;font-size:50px;'>Welcome to The Game of War!</h1>", unsafe_allow_html=True)
-# col1, col2, col3 = st.columns(3)
 
+# Set function for changing which information the user sees when they select a button
 def change_intro_choice(choice):
     st.session_state.intro_choice = choice
 
+# Sidebar for selecting which information the user wants to see
 st.sidebar.write("What do you want to know about?")
-# with col1:
-st.sidebar.button('This Application', key='ThisApp', on_click=lambda: change_intro_choice('Introduction'))
-# with col2:
-st.sidebar.button('Development', key='Development', on_click=lambda: change_intro_choice('Development'))
-# with col3:
-st.sidebar.button('Game Rules', key='GameRules', on_click=lambda: change_intro_choice('Rules'))
+st.sidebar.button('This Application', key='ThisApp_Sidebar', on_click=lambda: change_intro_choice('Introduction'))
+st.sidebar.button('Development', key='Development_Sidebar', on_click=lambda: change_intro_choice('Development'))
+st.sidebar.button('Game Rules', key='GameRules_Sidebar', on_click=lambda: change_intro_choice('Rules'))
 
+# Buttons at the top of the page for ease of navigation during mobile user experience. 
+st.markdown("<p style='text-align:center;font-size:18px;'>What do you want to know about?</p>", unsafe_allow_html=True)
+col1, col2, col3 = st.columns(3)
+with col1:
+    st.button('This Application', key='ThisApp', on_click=lambda: change_intro_choice('Introduction'))
+with col2:
+    st.button('Development', key='Development', on_click=lambda: change_intro_choice('Development'))
+with col3:
+    st.button('Game Rules', key='GameRules', on_click=lambda: change_intro_choice('Rules'))
+
+# Introduction information content (default and when selected.)
 if st.session_state.intro_choice == 'Introduction':
     # Title for the app
     # st.markdown("<h1 style='text-align:center;font-size:50px;'>Welcome to The Game of War!</h1>", unsafe_allow_html=True)
@@ -33,6 +51,8 @@ if st.session_state.intro_choice == 'Introduction':
         - The **Stats Dashboard** page is where you can view some statistics about the game, who won, how many rounds it took, etc.
         - The **War Data** Page is where all of the game data is populated. See what is going on during each round!
     """)
+
+# Development information content (when selected.)
 elif st.session_state.intro_choice == 'Development':
     st.markdown("<h4 style='text-align:center;font-size:40px;'>App Development</h4>", unsafe_allow_html=True)
     st.markdown("<hr>", unsafe_allow_html=True)
@@ -50,6 +70,8 @@ elif st.session_state.intro_choice == 'Development':
     - Thanks for Playing my game! - NA
                 
     """)
+
+# Game Rules information content (when selected.)
 elif st.session_state.intro_choice == 'Rules':
     # Rules of the Game
     st.markdown("<h4 style='text-align:center;font-size:40px;'>The Game</h4>", unsafe_allow_html=True)
