@@ -1,2 +1,3 @@
 pydealer
 plotly
+streamlit_extras.metric_cards
