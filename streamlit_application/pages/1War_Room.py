@@ -909,6 +909,7 @@ def play_with_increments(rounds, sleepy_time):
 # Function to handle the "Play Game?" button action
 def handle_play_game():
     # Update session state to indicate the game has started
+    set_up_game_environment()
     st.session_state.game_state = "in_game"
 
 # Function to updates the charts on display while the user is playing the game
@@ -975,11 +976,11 @@ def build_data_page():
     try:
         Player_1_Rounds_Won_Chart = Player_1_Statistics['Player 1 Rounds Won'].iloc[-1]
     except IndexError:  # Catching the case where the DataFrame is empty
-        Player_1_Rounds_Won_Chart = 0
+        Player_1_Rounds_Won_Chart = 10
     try:
         Player_2_Rounds_Won_Chart = Player_2_Statistics['Player 2 Rounds Won'].iloc[-1]
     except IndexError:  # Catching the case where the DataFrame is empty
-        Player_2_Rounds_Won_Chart = 0
+        Player_2_Rounds_Won_Chart = 10
 
     # Create the pie chart using streamlit
     fig_pie = go.Figure(data=[
@@ -1016,7 +1017,7 @@ if "first_game" not in st.session_state:
 
 # Initialize 'first_game' in session state if not already present
 if st.session_state.first_game == True:
-    set_up_game_environment()
+    # set_up_game_environment()
     st.session_state.first_game = False
 
 # Display the title of the page

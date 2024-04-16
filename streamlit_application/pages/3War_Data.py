@@ -12,7 +12,7 @@ import altair as alt
 st.set_page_config(page_title="War Data", page_icon="♠️", layout="wide")
 alt.themes.enable('opaque')
 
-if "Game_Statistics" not in st.session_state:
+if "Game_Statistics" not in st.session_state or len(st.session_state.Game_Statistics) == 0:
     st.markdown("<h1 style='text-align:center;font-size:50px;'>Game and Player Data</h1>", unsafe_allow_html=True)
     st.markdown("<i><h6 style='text-align:center;font-size:20px;'>Please simulate a game in the War Room to see the data</h6></i>", unsafe_allow_html=True)
     col1, col2, col3 = st.columns(3)
