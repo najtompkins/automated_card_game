@@ -36,6 +36,11 @@ Originally designed as a personal coding challenge, this project evolved into a 
 #### Refined Page Loading
 - **April 14, 2024**: Fixed bugs when navigating through the Streamlit application's pages and included navigation buttons at the top of the Introduction page for easy navigation on mobile interfaces.
 
+#### Refined Page Loading
+- **April 15, 2024**: Utilized dedicated Streamlit elements to enhance user navigation throughout the pages, as well as begun constructing the statistics dashboards in the "Stats Dashboard" page. Enhanced the charts in the "War Room" page by adding annotations and other elements.
+
+Fixed bugs when users would zoom in on the bar chart element of the "War Room" page, leaving data to be unreadable.
+
 
 ### Lessons Learned
 

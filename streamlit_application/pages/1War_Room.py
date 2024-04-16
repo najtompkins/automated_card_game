@@ -3,12 +3,16 @@ from time import sleep # For optional delay between rounds
 import pandas as pd # For dataframes
 import streamlit as st # For Streamlit application framework
 import plotly.graph_objects as go # For plotting graphs
+import plotly.express as px
 import warnings # For suppressing warnings in the terminal
 
 # """
 # This War Room page sets up the needed funcitons to simulate the game of war, then builds the streamlit page which allows the user to interact with and 
 # simulate the game for themselves. Data is generated throughout the many funcitons in this page and then added to the Game_Statistics, Player_1_Statistics, and Player_2_Statistics Pandas Dataframes.
 # """
+
+# Set page configuration with title and burst icon
+st.set_page_config(page_title="War Room", page_icon="💥", layout="centered")
 
 
 # Suppress FutureWarnings so the terminal is not flooded with warnings during a simulation
@@ -927,17 +931,44 @@ def build_data_page():
     try:
         Player_1_Card_Count = Player_1_Statistics['Total Player 1 Cards'].iloc[-1]
     except IndexError:  # Catching the case where the DataFrame is empty
-        Player_1_Card_Count = 0
+        Player_1_Card_Count = 26
     try:
         Player_2_Card_Count = Player_2_Statistics['Total Player 2 Cards'].iloc[-1]
     except IndexError:  # Catching the case where the DataFrame is empty
-        Player_2_Card_Count = 0
+        Player_2_Card_Count = 26
 
     # Player names for the chart legends
     players = ['Player 1', 'Player 2']
     values = [Player_1_Card_Count, Player_2_Card_Count]
     # Create a bar chart using streamlit
-    line_chart_placeholder.line_chart(Card_Distributions, x='Round Number', y=['Total Player 1 Cards', 'Total Player 2 Cards'], color=["#429EBD","#F7AD19"])
+    # line_chart_placeholder.line_chart(Card_Distributions, x='Round Number', y=['Total Player 1 Cards', 'Total Player 2 Cards'], color=["#429EBD","#F7AD19"])
+
+    fig_line = px.line(Card_Distributions, x='Round Number', y=['Total Player 1 Cards', 'Total Player 2 Cards'], color_discrete_map={"Total Player 1 Cards": "#429EBD", "Total Player 2 Cards": "#F7AD19"}, labels={ "value": "Total Cards", "variable": "Players"})
+
+    # Update legend names
+    fig_line.for_each_trace(lambda t: t.update(name=t.name.replace("Total Player 1 Cards", "Player 1's Total Cards")))
+    fig_line.for_each_trace(lambda t: t.update(name=t.name.replace("Total Player 2 Cards", "Player 2's Total Cards")))
+
+    # Find the max value for each series
+    max_value_player1 = Card_Distributions['Total Player 1 Cards'].max()
+    max_value_player2 = Card_Distributions['Total Player 2 Cards'].max()
+
+    # Get the rounds for each max value
+    round_max_player1 = Card_Distributions[Card_Distributions['Total Player 1 Cards'] == max_value_player1]['Round Number'].values[0] if max_value_player1 > 0 else 0
+    round_max_player2 = Card_Distributions[Card_Distributions['Total Player 2 Cards'] == max_value_player2]['Round Number'].values[0] if max_value_player2 > 0 else 0
+
+    # Add annotations for max values
+    fig_line.add_annotation(x=round_max_player1, y=max_value_player1, 
+                    text=f"Max for P1: {max_value_player1}", showarrow=True, arrowhead=6, arrowcolor="#429EBD", font=dict(color='black', size=14), ax=0, ay=-40)
+    fig_line.add_annotation(x=round_max_player2, y=max_value_player2, 
+                    text=f"Max for P2: {max_value_player2}", showarrow=True, arrowhead=6, arrowcolor="#F7AD19", font=dict(color='black', size=14), ax=0, ay=-40)
+
+
+
+    fig_line.update_layout(legend=dict(x=0.5, xanchor="center", y=1.0, yanchor="bottom", orientation="h"), legend_title_text="")
+
+    line_chart_placeholder.plotly_chart(fig_line, use_container_width=True)
+
 
     # For the pie chart
     # Get the last values in the player total rounds won columns
@@ -954,7 +985,7 @@ def build_data_page():
     fig_pie = go.Figure(data=[
         go.Pie(labels=players, values=values, marker=dict(colors=['#429EBD','#F7AD19']), sort=False, direction="clockwise")])
     # set the size and removing the legend
-    fig_pie.update_layout(width=300, height=400, showlegend=False)
+    fig_pie.update_layout(width=300, height=400, showlegend=False, title='Card Ownership', title_x=0, margin=dict(l=0, r=0, t=30, b=0))
     # update the pie chart placeholder
     pie_chart_placeholder.plotly_chart(fig_pie)
 
@@ -964,7 +995,7 @@ def build_data_page():
         go.Bar(name='Player 2 Rounds Won', x=['Player 2'], y=[Player_2_Rounds_Won_Chart], marker_color='#F7AD19', text=[Player_2_Rounds_Won_Chart], textposition=['outside'])
     ])
     # remove the legend
-    fig_bar.update_layout(barmode='group', showlegend=False)
+    fig_bar.update_layout(barmode='group', showlegend=False, dragmode=False, title='Rounds Won', title_x=0, margin=dict(l=0, r=0, t=30, b=0))
     # update the bar chart placeholder
     bar_chart_placeholder.plotly_chart(fig_bar, use_container_width=True)
 
@@ -1013,9 +1044,9 @@ elif st.session_state.game_state == "in_game":
 
     # Display player names in their colors
     with column1:
-        st.markdown(f"<h4 style='text-align:left;font-size:40px;color:{color1};'>Player 1</h4>", unsafe_allow_html=True)
+        st.markdown(f"<h4 style='text-align:center;font-size:40px;color:{color1};'>Player 1</h4>", unsafe_allow_html=True)
     with column2:
-        st.markdown(f"<h4 style='text-align:Right;font-size:40px;color:{color2};'>Player 2</h4>", unsafe_allow_html=True)
+        st.markdown(f"<h4 style='text-align:center;font-size:40px;color:{color2};'>Player 2</h4>", unsafe_allow_html=True)
 
     # Display the buttons users use to iterate through the game
     with col1:
