@@ -41,6 +41,11 @@ Originally designed as a personal coding challenge, this project evolved into a 
 
 Fixed bugs when users would zoom in on the bar chart element of the "War Room" page, leaving data to be unreadable.
 
+#### Refined Page Loading
+- **April 18, 2024**: Finalized build-out of 'Stats Dashboard' page, complete with elements for game and player metrics, charts, etc (metrics colored using winner's primary player color). Added buttons on various pages to better enhance user-navigation through the app.
+
+Fixed various bugs.
+
 
 ### Lessons Learned
 

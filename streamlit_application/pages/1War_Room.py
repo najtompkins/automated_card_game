@@ -14,7 +14,6 @@ import warnings # For suppressing warnings in the terminal
 # Set page configuration with title and burst icon
 st.set_page_config(page_title="War Room", page_icon="💥", layout="centered")
 
-
 # Suppress FutureWarnings so the terminal is not flooded with warnings during a simulation
 warnings.simplefilter(action='ignore', category=FutureWarning)
 
@@ -926,6 +925,9 @@ def build_data_page():
     Card_Distributions['Round Number'] = st.session_state.Game_Statistics['Round Number'].astype(float)
     Card_Distributions['Total Player 1 Cards'] = st.session_state.Player_1_Statistics['Total Player 1 Cards'].astype(int)
     Card_Distributions['Total Player 2 Cards'] = st.session_state.Player_2_Statistics['Total Player 2 Cards'].astype(int)
+    Card_Distributions['Total NonWar Cards Dealt In Round'] = st.session_state.Game_Statistics['Total NonWar Cards Dealt In Round'].astype(int)
+    Card_Distributions['Total War Cards Dealt In Round'] = st.session_state.Game_Statistics['Total War Cards Dealt In Round'].astype(int)
+    Card_Distributions['Total Cards Dealt In Round'] = st.session_state.Game_Statistics['Total Cards Dealt In Round'].astype(int)
     Card_Distributions.drop_duplicates(subset=['Round Number'], keep='last')
 
     # Get the last value in the Player_1_Statistics['Total Player 1 Cards'] column
@@ -1022,6 +1024,8 @@ if st.session_state.first_game == True:
 
 # Display the title of the page
 st.markdown("<h1 style='text-align:center;font-size:50px;'>The War Room</h1>", unsafe_allow_html=True)
+# Add a horizontal line
+st.markdown("<hr>", unsafe_allow_html=True)
 
 # Initialize columns for the page
 col1, col2, col3, col4= st.columns(4)
@@ -1102,8 +1106,14 @@ elif st.session_state.game_state == "after_game":
 
     # Display the winner of the game in the player's color
     st.markdown(f"<h4 style='text-align:center;font-size:40px;color:{color};'>Player {game_winner} Wins the Game after {rounds_total} Rounds!</h4>", unsafe_allow_html=True)
-    st.markdown(f"<i><h6 style='text-align:center;font-size:20px;'>Check out the Stats Dashboard and the War Data by clicking on the navigation bar to your left.</h6></i>", unsafe_allow_html=True)
-
+    # st.markdown(f"<i><h6 style='text-align:center;font-size:20px;'>Check out the Stats Dashboard and the War Data by clicking on the navigation bar to your left.</h6></i>", unsafe_allow_html=True)
+    columns1, columns2 = st.columns(2)
+    with columns1:
+        if st.button("See the Generated Stats Dashboard", key='leave_from_post_game_to_stats_dashboard'):
+            st.switch_page("pages/2Stats_Dashboard.py")
+    with columns2:
+        if st.button("See all of the War Data", key='leave_from_post_game_to_war_data'):
+            st.switch_page("pages/3War_Data.py")
     # c1, c2, c3, c4 = st.columns(4)
     # with c2:
     #     game_data_button_placeholder = st.empty()
