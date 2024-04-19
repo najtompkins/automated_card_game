@@ -1,6 +1,8 @@
 # Automated Card Game: [Play The Game Now!](https://nathansautomatedcardgame.streamlit.app)
 
 Explore the classic card game 'War' reimagined in Python and Visual Basic for Applications (VBA), featuring implementations both as a Streamlit web app and an Excel-based experience!
+## Project Repository Located: [Here](https://github.com/najtompkins/automated_card_game)
+
 ### Streamlit Intro Page:
 <p align="center">
     <img src="./images/streamlit_images/WarIntroApp.png" alt="First Image" width="45%"/>
