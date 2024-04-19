@@ -52,7 +52,7 @@ Explore the classic card game 'War' reimagined in Python and Visual Basic for Ap
         <p align="center" vertical_align='center'>
         <img src="./images/EndOfGameDistributionChartApp.png" alt="Third Image" width="70%"/>
         </p>
-5 **Generated Dataframe**: This life-blood of the game is the logic, but the ***substance*** of the project is the game data! In this page you can see each dataframe that the statistics in the above dashboards draw from. The Game Data includes metrics for the game as a whole while each player has their own metrics recorded in their own datafames. Each of these are avaialable by selecting the appropriate tab.
+5. **Generated Dataframe**: This life-blood of the game is the logic, but the ***substance*** of the project is the game data! In this page you can see each dataframe that the statistics in the above dashboards draw from. The Game Data includes metrics for the game as a whole while each player has their own metrics recorded in their own datafames. Each of these are avaialable by selecting the appropriate tab.
         <p align="center" vertical_align='center'>
         <img src="./images/GameDataframeApp.png" alt="Third Image" width="33%"/>
         <img src="./images/P1DataframeApp.png" alt="Second Image" width="33%"/>
