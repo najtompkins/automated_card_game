@@ -7,7 +7,7 @@ import plotly.express as px
 import warnings # For suppressing warnings in the terminal
 
 # """
-# This War Room page sets up the needed funcitons to simulate the game of war, then builds the streamlit page which allows the user to interact with and 
+# This War Room page sets up the needed functions to simulate the game of war, then builds the streamlit page which allows the user to interact with and 
 # simulate the game for themselves. Data is generated throughout the many funcitons in this page and then added to the Game_Statistics, Player_1_Statistics, and Player_2_Statistics Pandas Dataframes.
 # """
 

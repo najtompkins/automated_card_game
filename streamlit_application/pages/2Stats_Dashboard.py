@@ -390,8 +390,8 @@ else:
     # Player names for the chart legends
     players = ['Player 1', 'Player 2']
     values = [Player_1_Card_Count, Player_2_Card_Count]
+
     # Create a bar chart using streamlit
-    # line_chart_placeholder.line_chart(Card_Distributions, x='Round Number', y=['Total Player 1 Cards', 'Total Player 2 Cards'], color=["#429EBD","#F7AD19"])
     fig_line = px.line(Card_Distributions, x='Round Number', y=['Total Player 1 Cards', 'Total Player 2 Cards'], color_discrete_map={"Total Player 1 Cards": "#429EBD", "Total Player 2 Cards": "#F7AD19"}, labels={ "value": "Total Cards", "variable": "Players"}, height=350)
     # Update legend names
     fig_line.for_each_trace(lambda t: t.update(name=t.name.replace("Total Player 1 Cards", "Player 1's Total Cards")))
@@ -399,15 +399,18 @@ else:
     # Find the max value for each series
     max_value_player1 = Card_Distributions['Total Player 1 Cards'].max()
     max_value_player2 = Card_Distributions['Total Player 2 Cards'].max()
-    # Get the rounds for each max value
+    # Get the rounds around each max value
     round_max_player1 = Card_Distributions[Card_Distributions['Total Player 1 Cards'] == max_value_player1]['Round Number'].values[0] if max_value_player1 > 0 else 0
     round_max_player2 = Card_Distributions[Card_Distributions['Total Player 2 Cards'] == max_value_player2]['Round Number'].values[0] if max_value_player2 > 0 else 0
-    # Add annotations for max values
+    
+    # Add annotations for max values for better readability
+    # Max card annotations
     fig_line.add_annotation(x=round_max_player1, y=max_value_player1, 
                     text=f"Max Player 1 Cards Held: {max_value_player1}", showarrow=True, arrowhead=4, arrowcolor="#429EBD", font=dict(color='black', size=12), ax=-60, ay=-40, borderwidth=2, bordercolor="#429EBD")
     fig_line.add_annotation(x=round_max_player2, y=max_value_player2, 
                     text=f"Max Player 2 Cards Held: {max_value_player2}", showarrow=True, arrowhead=4, arrowcolor="#F7AD19", font=dict(color='black', size=12), ax=-60, ay=-40, borderwidth=2, bordercolor="#F7AD19")
 
+    # Win streak annotations
     fig_line.add_vrect(x0=streak_tuples[0][2], x1=streak_tuples[0][3], fillcolor="#429EBD", opacity=0.25, line_width=0)
     fig_line.add_annotation(x=(streak_tuples[0][2] + streak_tuples[0][3]) / 2, y=0.2, yref="paper",
                     text="Longest Player 1 Win Streak", showarrow=False, font=dict(color='black', size=12),
@@ -417,7 +420,10 @@ else:
                     text="Longest Player 2 Win Streak", showarrow=False, font=dict(color='black', size=12),
                     bgcolor="white", bordercolor="#F7AD19", borderwidth=2, opacity=0.85)
 
+    # Update layout of the chart in other elements
     fig_line.update_layout(legend=dict(x=0.5, xanchor="center", y=1.0, yanchor="bottom", orientation="h"), legend_title_text="")
+    
+    # Conditional statement depending on how many times players switched dominance
     if players_switched > 1:
         st.markdown(f"<h4 style='text-align:center;font-size:28px;'>The Players switched dominance {players_switched} times.</h4>", unsafe_allow_html=True)
     else:
@@ -426,7 +432,6 @@ else:
 
     # Add buttons to navigate to the War Data page
     button_col1, button_col2, button_col3= st.columns(3)
-
 
     with button_col1:
         with st.expander("Peek at the Game Data"):
