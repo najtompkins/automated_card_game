@@ -36,15 +36,28 @@ Originally designed as a personal coding challenge, this project evolved into a 
 #### Refined Page Loading
 - **April 14, 2024**: Fixed bugs when navigating through the Streamlit application's pages and included navigation buttons at the top of the Introduction page for easy navigation on mobile interfaces.
 
-#### Refined Page Loading
+#### Refined User Navigation
 - **April 15, 2024**: Utilized dedicated Streamlit elements to enhance user navigation throughout the pages, as well as begun constructing the statistics dashboards in the "Stats Dashboard" page. Enhanced the charts in the "War Room" page by adding annotations and other elements.
 
 Fixed bugs when users would zoom in on the bar chart element of the "War Room" page, leaving data to be unreadable.
 
-#### Refined Page Loading
-- **April 18, 2024**: Finalized build-out of 'Stats Dashboard' page, complete with elements for game and player metrics, charts, etc (metrics colored using winner's primary player color). Added buttons on various pages to better enhance user-navigation through the app.
+#### Stats Dashboard Build-Out
+- **April 18, 2024**: Pre-Finalized build-out of 'Stats Dashboard' page, complete with elements for game and player metrics, charts, etc (metrics colored using winner's primary player color). Added buttons on various pages to better enhance user-navigation through the app.
 
 Fixed various bugs.
+
+#### Refined Various Elements
+- **April 19, 2024**: Finalized build-out of 'Stats Dashboard' pages, refning metric 'delta' elements for better readability. 
+Added config.toml file to project directory for a consitent light-themed experience as many chart elements do not look great in dark theme. 
+Chart elements were also adjusted to avoid overlapping annotations and over-extended X range on the right side of the chart. 
+Restructured st.metric elements into 4 columns on the Game Data tab.
+
+Fixed various bugs.
+
+#### Future Features
+ - **Dataframe Gonditional Gormatting**: In all dataframe elements present in the application each row will be subtly colored to the corresponding winner of that round, and if the case where there is a war and there is not round winner, a redish color will appear.
+ - **Custom Name and Colors for Players**: In the Landing Page I want to add text-box inputs that will allow the user to choose their name (defaulted to Player 1 or 2 at this moment, hard-coded) and colors to represent them as either player during the simulation game and subsequent metrics.
+
 
 
 ### Lessons Learned

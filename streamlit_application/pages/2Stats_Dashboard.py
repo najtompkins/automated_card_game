@@ -1,12 +1,11 @@
 import streamlit as st
 from streamlit_extras.metric_cards import style_metric_cards
-import altair as alt
 import pandas as pd
 import plotly.express as px
 
 
 # Set page configuration with title and stats icon
-st.set_page_config(page_title="Stats Dashboard'", page_icon="📊", layout="wide")
+st.set_page_config(page_title="Stats Dashboard'", page_icon="📊", layout="wide", initial_sidebar_state="collapsed")
 
 if "Game_Statistics" not in st.session_state or len(st.session_state.Game_Statistics) == 0:
     st.markdown("<h1 style='text-align:center;font-size:50px;'>Game and Player Data</h1>", unsafe_allow_html=True)
@@ -122,34 +121,36 @@ else:
             if st.button("Go to the War Room", key='leave_from_game_stats_dashboard'):
                 st.switch_page("pages/1War_Room.py")
 
-        row1_col1, row1_col2, row1_col3 = st.columns(3)
-        with row1_col1:
-            st.metric(label='During the Game There Were:', value=f"{Game_Statistics['Total Wars In Game'].iloc[-1]} Wars")
-        with row1_col2:
-            st.metric(label="The Player who Won the Game:", value=f'Player {game_winner}!')
-        with row1_col3:
-            st.metric(label='Most Wars in a Single Round:', value=Game_Statistics['Total Wars In Round'].max())
-        
-        row2_col1, row2_col2, row2_col3 = st.columns(3)
+        row2_col1, row2_col2= st.columns(2)
         with row2_col1:
-            st.metric(label='The Players Played:', value=f"{int(Game_Statistics['Round Number'].iloc[-1])} Rounds")
+            if Player_1_Statistics['Player 1 Wars Won'].max() > Player_2_Statistics['Player 2 Wars Won'].max():
+                most_wars = 'Player 1'
+            else:
+                most_wars = 'Player 2'
+            st.metric(label="The Player Who Won the Most Wars:", value=most_wars)   
         with row2_col2:
             if Player_1_Statistics['Player 1 Rounds Won'].max() > Player_2_Statistics['Player 2 Rounds Won'].max():
                 most_rounds = 'Player 1'
             else:
                 most_rounds = 'Player 2'
             
-            st.metric(label="The Player Who Won the Most Rounds:", value=most_rounds)
-        with row2_col3:
+            st.metric(label="The Player Who Won the Most Rounds:", value=most_rounds)     
 
-            if Player_1_Statistics['Player 1 Wars Won'].max() > Player_2_Statistics['Player 2 Wars Won'].max():
-                most_wars = 'Player 1'
-            else:
-                most_wars = 'Player 2'
-            
-            st.metric(label="The Player Who Won the Most Wars:", value=most_wars)
+        row1_col1, row1_col2 = st.columns(2)
+        with row1_col1:
+            st.metric(label='During the Game There Were:', value=f"{Game_Statistics['Total Wars In Game'].iloc[-1]} Wars")
+        with row1_col2:
+            st.metric(label='Most Wars in a Single Round:', value=Game_Statistics['Total Wars In Round'].max())
 
-        row3_col1, row3_col2, row3_col3 = st.columns(3)
+        row4_col1, row4_col2 = st.columns(2)
+        with row4_col1:
+            st.metric(label='The Players Dealt', value=f"{Game_Statistics['Total Cards Dealt In Game'].iloc[-1]} Cards")
+        with row4_col2:
+            st.metric(label='The Players Played:', value=f"{int(Game_Statistics['Round Number'].iloc[-1])} Rounds")
+
+
+
+        row3_col1, row3_col2 = st.columns(2)
         val1 = Game_Statistics['Total NonWar Cards Dealt In Game'].iloc[-1]
         val2 = Game_Statistics['Total War Cards Dealt In Game'].iloc[-1]
         val3 = Game_Statistics['Total Cards Dealt In Game'].iloc[-1]
@@ -157,10 +158,8 @@ else:
         perc2 = (val2 / val3) * 100
 
         with row3_col1:
-            st.metric(label='The Players Dealt', value=f"{Game_Statistics['Total Cards Dealt In Game'].iloc[-1]} Cards")
-        with row3_col2:
             st.metric(label="How Many Cards Dealt in Normal Play?", value=f"{Game_Statistics['Total NonWar Cards Dealt In Game'].iloc[-1]} Cards ({perc1:.1f}%)")
-        with row3_col3:
+        with row3_col2:
             st.metric(label="How Many Cards Dealt During Wars?", value=f"{Game_Statistics['Total War Cards Dealt In Game'].iloc[-1]} Cards ({perc2:.1f}%)")
 
         # st.dataframe(Game_Statistics)
@@ -182,12 +181,12 @@ else:
 
         row3_col1, row3_col2, row3_col3 = st.columns(3)
         with row3_col1:
-            st.metric(label='Maximum cards held:', value=f"{Player_1_Statistics['Total Player 1 Cards'].max()} Cards", delta=f"{Player_1_Statistics['Total Player 1 Cards'].max() - Player_2_Statistics['Total Player 2 Cards'].max()} (Player 2)")
+            st.metric(label='Maximum cards held:', value=f"{Player_1_Statistics['Total Player 1 Cards'].max()} Cards", delta=f"{Player_1_Statistics['Total Player 1 Cards'].max() - Player_2_Statistics['Total Player 2 Cards'].max()} from {Player_2_Statistics['Total Player 2 Cards'].max()} (Pl.2)")
         with row3_col2:
             # Get the number of times Player_1_Statistics['Player 1 Ran Out of Cards'] is True
-            st.metric(label="How many times was their hand depleted?", value=f"{(Player_1_Statistics['Player 1 Ran Out of Cards'] == True).sum()} Times", delta=f"{(Player_1_Statistics['Player 1 Ran Out of Cards'] == True).sum() - (Player_2_Statistics['Player 2 Ran Out of Cards'] == True).sum()} (Player 2)")
+            st.metric(label="How many times was their hand depleted?", value=f"{(Player_1_Statistics['Player 1 Ran Out of Cards'] == True).sum()} Times", delta=f"{(Player_1_Statistics['Player 1 Ran Out of Cards'] == True).sum() - (Player_2_Statistics['Player 2 Ran Out of Cards'] == True).sum()} from {(Player_2_Statistics['Player 2 Ran Out of Cards'] == True).sum()} (Pl.2)")
         with row3_col3:
-            st.metric(label="Cards dealt back into hand:", value=f"{Player_1_Statistics['Cards Dealt Back to Player 1'].sum()} Cards", delta=f"{Player_1_Statistics['Cards Dealt Back to Player 1'].sum() - Player_2_Statistics['Cards Dealt Back to Player 2'].sum()} (Player 2)", delta_color="inverse")
+            st.metric(label="Cards dealt back into hand:", value=f"{Player_1_Statistics['Cards Dealt Back to Player 1'].sum()} Cards", delta=f"{Player_1_Statistics['Cards Dealt Back to Player 1'].sum() - Player_2_Statistics['Cards Dealt Back to Player 2'].sum()} from {Player_2_Statistics['Cards Dealt Back to Player 2'].sum()} (Pl.2)", delta_color="inverse")
 
         row1_col1, row1_col2 = st.columns(2)
         with row1_col1:
@@ -196,14 +195,14 @@ else:
             val3 = val1 + val2
             perc1 = (val1 / val3) * 100
             perc2 = (val2 / val3) * 100
-            st.metric(label='How many rounds did Player 1 win?', value=f"{Player_1_Statistics['Player 1 Rounds Won'].max()} Rounds ({perc1:.1f}%)", delta=f"{(perc1-perc2):.1f}% (Player 2)")
+            st.metric(label='How many rounds did Player 1 win?', value=f"{Player_1_Statistics['Player 1 Rounds Won'].max()} Rounds ({perc1:.1f}%)", delta=f"{(perc1-perc2):.1f}% from {perc2:.1f}% (Pl.2)")
         with row1_col2:
             val1 = Player_1_Statistics['Player 1 Wars Won'].max()
             val2 = Player_2_Statistics['Player 2 Wars Won'].max()
             val3 = val1 + val2
             perc1 = (val1 / val3) * 100
             perc2 = (val2 / val3) * 100            
-            st.metric(label="How many wars did Player 1 win?", value=f'{Player_1_Statistics["Player 1 Wars Won"].max()} Wars ({perc1:.1f}%)', delta=f"{(perc1-perc2):.1f}% (Player 2)")
+            st.metric(label="How many wars did Player 1 win?", value=f'{Player_1_Statistics["Player 1 Wars Won"].max()} Wars ({perc1:.1f}%)', delta=f"{(perc1-perc2):.1f}% from {perc2:.1f}% (Pl. 2)")
         
         dropped_duplicates = Player_1_Statistics.drop_duplicates(subset=['Round Number'], keep='last')
         most_common_value_counts_card = dropped_duplicates['Player 1 Card'].value_counts()
@@ -246,7 +245,7 @@ else:
 
 
     with tab3:
-        st.subheader('Player 2 Data', divider='blue')
+        st.subheader('Player 2 Data', divider='orange')
 
         if game_winner == 2:
             st.markdown(f"<h4 style='text-align:center;font-size:30px;color:{color};'>Player {game_winner} won the Game after {rounds_total} rounds!</h4>", unsafe_allow_html=True)
@@ -260,11 +259,11 @@ else:
 
         row3_col1, row3_col2, row3_col3 = st.columns(3)
         with row3_col1:
-            st.metric(label='Maximum cards held:', value=f"{Player_2_Statistics['Total Player 2 Cards'].max()} Cards", delta=f"{Player_2_Statistics['Total Player 2 Cards'].max() - Player_1_Statistics['Total Player 1 Cards'].max()}, (Player 1: {Player_1_Statistics['Total Player 1 Cards'].max()})")
+            st.metric(label='Maximum cards held:', value=f"{Player_2_Statistics['Total Player 2 Cards'].max()} Cards", delta=f"{Player_2_Statistics['Total Player 2 Cards'].max() - Player_1_Statistics['Total Player 1 Cards'].max()} from {Player_1_Statistics['Total Player 1 Cards'].max()} (Pl.1)")
         with row3_col2:
-            st.metric(label="How many times was their hand depleted?", value=f"{(Player_2_Statistics['Player 2 Ran Out of Cards'] == True).sum()} Times", delta=f"{(Player_2_Statistics['Player 2 Ran Out of Cards'] == True).sum() - (Player_1_Statistics['Player 1 Ran Out of Cards'] == True).sum()}, (PLayer 1: {(Player_1_Statistics['Player 1 Ran Out of Cards'] == True).sum()})", delta_color="inverse")
+            st.metric(label="How many times was their hand depleted?", value=f"{(Player_2_Statistics['Player 2 Ran Out of Cards'] == True).sum()} Times", delta=f"{(Player_2_Statistics['Player 2 Ran Out of Cards'] == True).sum() - (Player_1_Statistics['Player 1 Ran Out of Cards'] == True).sum()} from {(Player_1_Statistics['Player 1 Ran Out of Cards'] == True).sum()} (Pl.1)" , delta_color="inverse")
         with row3_col3:
-            st.metric(label="Cards dealt back into hand:", value=f"{Player_2_Statistics['Cards Dealt Back to Player 2'].sum()} Cards", delta=f"{Player_2_Statistics['Cards Dealt Back to Player 2'].sum() - Player_1_Statistics['Cards Dealt Back to Player 1'].sum()} (Player 1)", delta_color="inverse")
+            st.metric(label="Cards dealt back into hand:", value=f"{Player_2_Statistics['Cards Dealt Back to Player 2'].sum()} Cards", delta=f"{Player_2_Statistics['Cards Dealt Back to Player 2'].sum() - Player_1_Statistics['Cards Dealt Back to Player 1'].sum()} from {Player_1_Statistics['Cards Dealt Back to Player 1'].sum()} (Pl.1)", delta_color="inverse")
 
         row1_col1, row1_col2 = st.columns(2)
         with row1_col1:
@@ -273,14 +272,14 @@ else:
             val3 = val1 + val2
             perc1 = (val1 / val3) * 100
             perc2 = (val2 / val3) * 100
-            st.metric(label='How many rounds did Player 2 win?', value=f"{val1} Rounds ({perc1:.1f}%)", delta=f"{(perc1-perc2):.1f}% (Player 1: {perc2:.1f}%)")
+            st.metric(label='How many rounds did Player 2 win?', value=f"{val1} Rounds ({perc1:.1f}%)", delta=f"{(perc1-perc2):.1f}% from {perc2:.1f}% (Pl.1)")
         with row1_col2:
             val1 = Player_2_Statistics['Player 2 Wars Won'].max()
             val2 = Player_1_Statistics['Player 1 Wars Won'].max()
             val3 = val1 + val2
             perc1 = (val1 / val3) * 100
             perc2 = (val2 / val3) * 100            
-            st.metric(label="How many wars did Player 2 win?", value=f'{val1} Wars ({perc1:.1f}%)', delta=f"{(perc1-perc2):.1f}% (Player 1: {perc2:.1f}%)")
+            st.metric(label="How many wars did Player 2 win?", value=f'{val1} Wars ({perc1:.1f}%)', delta=f"{(perc1-perc2):.1f}% from {perc2:.1f}% (Pl.1)")
 
         dropped_duplicates = Player_2_Statistics.drop_duplicates(subset=['Round Number'], keep='last')
         most_common_value_counts_card = dropped_duplicates['Player 2 Card'].value_counts()
@@ -307,7 +306,7 @@ else:
             second_most_common_value_counts_card = dropped_duplicates['Player 2 Card Suit'].value_counts()
             second_most_common_value = second_most_common_value_counts_card.index[1]
             second_occurrences_card = second_most_common_value_counts_card.iloc[1]
-            st.metric(label="What was their most common suit?'", value=f"{most_common_value} ({occurrences_card} Times)", delta=f"Second most common:'{second_most_common_value}' ({second_occurrences_card} Times)")
+            st.metric(label="What was their most common suit?'", value=f"{most_common_value} ({occurrences_card} Times)", delta=f"Second most common: '{second_most_common_value}' ({second_occurrences_card} Times)")
 
         # Get the last value in the Player_1_Statistics['Total Player 1 Cards'] column
         try:
@@ -405,21 +404,24 @@ else:
     round_max_player2 = Card_Distributions[Card_Distributions['Total Player 2 Cards'] == max_value_player2]['Round Number'].values[0] if max_value_player2 > 0 else 0
     # Add annotations for max values
     fig_line.add_annotation(x=round_max_player1, y=max_value_player1, 
-                    text=f"Max Player 1 Cards Held: {max_value_player1}", showarrow=True, arrowhead=4, arrowcolor="#429EBD", font=dict(color='black', size=12), ax=0, ay=-40, borderwidth=2, bordercolor="#429EBD")
+                    text=f"Max Player 1 Cards Held: {max_value_player1}", showarrow=True, arrowhead=4, arrowcolor="#429EBD", font=dict(color='black', size=12), ax=-60, ay=-40, borderwidth=2, bordercolor="#429EBD")
     fig_line.add_annotation(x=round_max_player2, y=max_value_player2, 
-                    text=f"Max Player 2 Cards Held: {max_value_player2}", showarrow=True, arrowhead=4, arrowcolor="#F7AD19", font=dict(color='black', size=12), ax=0, ay=-40, borderwidth=2, bordercolor="#F7AD19")
+                    text=f"Max Player 2 Cards Held: {max_value_player2}", showarrow=True, arrowhead=4, arrowcolor="#F7AD19", font=dict(color='black', size=12), ax=-60, ay=-40, borderwidth=2, bordercolor="#F7AD19")
 
     fig_line.add_vrect(x0=streak_tuples[0][2], x1=streak_tuples[0][3], fillcolor="#429EBD", opacity=0.25, line_width=0)
-    fig_line.add_annotation(x=(streak_tuples[0][2] + streak_tuples[0][3]) / 2, y=0.8, yref="paper",
+    fig_line.add_annotation(x=(streak_tuples[0][2] + streak_tuples[0][3]) / 2, y=0.2, yref="paper",
                     text="Longest Player 1 Win Streak", showarrow=False, font=dict(color='black', size=12),
                     bgcolor="white", bordercolor="#429EBD", borderwidth=2, opacity=0.85)
     fig_line.add_vrect(x0=streak_tuples[1][2], x1=streak_tuples[1][3], fillcolor="#F7AD19", opacity=0.25, line_width=0)
-    fig_line.add_annotation(x=(streak_tuples[1][2] + streak_tuples[1][3]) / 2, y=0.8, yref="paper",
+    fig_line.add_annotation(x=(streak_tuples[1][2] + streak_tuples[1][3]) / 2, y=0.3, yref="paper",
                     text="Longest Player 2 Win Streak", showarrow=False, font=dict(color='black', size=12),
                     bgcolor="white", bordercolor="#F7AD19", borderwidth=2, opacity=0.85)
 
     fig_line.update_layout(legend=dict(x=0.5, xanchor="center", y=1.0, yanchor="bottom", orientation="h"), legend_title_text="")
-    st.markdown(f"<h4 style='text-align:center;font-size:28px;'>The Players switched dominance {players_switched} times.</h4>", unsafe_allow_html=True)
+    if players_switched > 1:
+        st.markdown(f"<h4 style='text-align:center;font-size:28px;'>The Players switched dominance {players_switched} times.</h4>", unsafe_allow_html=True)
+    else:
+        st.markdown(f"<h4 style='text-align:center;font-size:28px;'>The Players switched dominance {players_switched} time.</h4>", unsafe_allow_html=True)
     st.plotly_chart(fig_line, use_container_width=True)
 
     # Add buttons to navigate to the War Data page
@@ -438,8 +440,3 @@ else:
         with st.expander("Peek at the Player 2 Data"):
             st.dataframe(Player_2_Statistics)
     style_metric_cards(background_color='#FFF', border_size_px=2, border_color='#CCC', border_radius_px=15, border_left_color=color, box_shadow=True)
-
-
-
-
-

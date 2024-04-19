@@ -1,7 +1,6 @@
 import streamlit as st
 import numpy as np
 import pandas as pd
-import altair as alt
 
 # """
 # This page displays the data generated from the game in it's raw format,
@@ -10,7 +9,6 @@ import altair as alt
 
 # Set page configuration with title and spades icon
 st.set_page_config(page_title="War Data", page_icon="♠️", layout="wide")
-alt.themes.enable('opaque')
 
 if "Game_Statistics" not in st.session_state or len(st.session_state.Game_Statistics) == 0:
     st.markdown("<h1 style='text-align:center;font-size:50px;'>Game and Player Data</h1>", unsafe_allow_html=True)

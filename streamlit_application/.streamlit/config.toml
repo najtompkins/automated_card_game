@@ -1,0 +1,27 @@
+[theme]
+# Base theme: "light" or "dark", starting with the light theme as the basic
+base = "light"
+
+# Primary color for buttons and interactive elements, using a muted blue for a professional look
+primaryColor = "#346888"
+
+# Background color for the main content area, keeping it clean and light
+backgroundColor = "#FFFFFF"  # Pure white for maximum brightness and clarity
+
+# Secondary background color for sidebars and panels, using a very light grey to add subtle contrast
+secondaryBackgroundColor = "#F8F9FA"
+
+# Text color, using a deep grey to reduce the harshness of black
+textColor = "#333333"
+
+# Font style, sticking with sans serif for readability and modern appearance
+font = "sans serif"
+
+# Custom colors for chart elements, ensuring they stand out in your visualizations
+accentColor = "#F7AD19"  # Orange for important highlights
+neutralColor = "#429EBD"  # Blue for secondary elements
+
+# Additional UI elements that could benefit from slight tweaks
+infoColor = "#17A2B8"  # A lighter shade of blue for informational messages
+successColor = "#28A745"  # A calming green for success states
+errorColor = "#DC3545"
