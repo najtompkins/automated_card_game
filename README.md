@@ -181,6 +181,10 @@ Restructured st.metric elements into 4 columns on the Game Data tab.
 
 - Fixed various bugs.
 
+### Enhanced Introduction Page
+- **April 21, 2024**: Enhanced the Introduction page to bring it closer inline to this README, linking to it and so that the project's cohesion between documentation and application are closer in step, adding tabular sections for easier navigation, and some of the images also linked above.
+
+
 ### Future Features
  - **Dataframe Conditional Formatting**: In all dataframe elements present in the application each row will be subtly colored to the corresponding winner of that round, and if the case where there is a war and there is not round winner, a redish color will appear.
  - **Custom Name and Colors for Players**: In the Landing Page I want to add text-box inputs that will allow the user to choose their name (defaulted to Player 1 or 2 at this moment, hard-coded) and colors to represent them as either player during the simulation game and subsequent metrics.
