@@ -1,4 +1,4 @@
- # Play The Game For Yourself: [Here](https://nathansautomatedcardgame.streamlit.app)
+# Play The Game For Yourself: [Here](https://nathansautomatedcardgame.streamlit.app)
 
 Explore the classic card game 'War' reimagined in Python and Visual Basic for Applications (VBA), featuring implementations both as a Streamlit web app and an Excel-based experience!
 ## Project Repository Located: [Here](https://github.com/najtompkins/automated_card_game)
@@ -172,7 +172,6 @@ Explore the classic card game 'War' reimagined in Python and Visual Basic for Ap
 - **April 18, 2024**: Pre-Finalized build-out of 'Stats Dashboard' page, complete with elements for game and player metrics, charts, etc (metrics colored using winner's primary player color). Added buttons on various pages to better enhance user-navigation through the app.
 
 - Fixed various bugs.
-
 ### Refined Various Elements
 - **April 19, 2024**: Finalized build-out of 'Stats Dashboard' pages, refning metric 'delta' elements for better readability. 
 Added config.toml file to project directory for a consistent light-themed experience as many chart elements do not look great in dark theme. 
