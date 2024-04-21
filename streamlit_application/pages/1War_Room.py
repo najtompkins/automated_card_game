@@ -741,16 +741,11 @@ def play_war(sleepy_time = 0.2):
                 print("There was a war!")
                 st.session_state.Local_War_Count += 1 # Add to the local war counter
                 st.session_state.Data_War_Happened = True # War Condition for the round is True
-                # global Data_Total_Wars_In_Round
                 st.session_state.Data_Total_Wars_In_Round += 1
                 st.session_state.Data_Round_Number += 0.1 # Increase by 1 to indicate that we're in war round 1
-                # global Data_Total_Player_1_NonWar_Cards_Dealt_In_Round
                 st.session_state.Data_Total_Player_1_NonWar_Cards_Dealt_In_Round -= 1 #These Changes so that if there is a war, the compared cards are considered War Cards, not Non-War Cards
-                # global Data_Total_Player_2_NonWar_Cards_Dealt_In_Round
                 st.session_state.Data_Total_Player_2_NonWar_Cards_Dealt_In_Round -= 1
-                # global Data_Total_Player_1_War_Cards_Dealt_In_Round
                 st.session_state.Data_Total_Player_1_War_Cards_Dealt_In_Round += 1
-                # global Data_Total_Player_2_War_Cards_Dealt_In_Round
                 st.session_state.Data_Total_Player_2_War_Cards_Dealt_In_Round += 1
                 report_round_data(st.session_state.Game_Statistics)
                 report_round_data(st.session_state.Player_1_Statistics)
@@ -840,19 +835,14 @@ def play_war(sleepy_time = 0.2):
         if war_result == 1 or war_result == 2:
             st.session_state.Data_War_Winner = st.session_state.result
             if war_result == 1:
-                # global Data_Player_1_Wars_Won
                 st.session_state.Data_Player_1_Wars_Won += 1
             elif war_result == 2:
-                # global Data_Player_2_Wars_Won
                 st.session_state.Data_Player_2_Wars_Won += 1
 
 
         if st.session_state.Local_War_Count > 0:
-            # global Data_War_Number
             st.session_state.Data_War_Number += st.session_state.Local_War_Count
-            # global Data_Total_Wars_In_Game
             st.session_state.Data_Total_Wars_In_Game += st.session_state.Local_War_Count
-            # st.session_state.Data_Total_Wars_In_Round += st.session_state.Local_War_Count
 
         # Reset the War Stacks after each round
         # Result Parameter assigned abive will always be 1, 2, or 0. 
@@ -1034,10 +1024,14 @@ col1, col2, col3, col4= st.columns(4)
 if st.session_state.game_state == "before_game":
     column1, column2 = st.columns(2)
     with column1:
-        st.markdown("<h3 style='text-align:left;font-size:42px;'>Play the Game?</h3>", unsafe_allow_html=True)
+        st.markdown("<h3 style='text-align:left;font-size:38px;'>Play the Game?</h3>", unsafe_allow_html=True)
 
         if st.button('Let\'s Go', on_click=handle_play_game):
             pass
+    with column2:
+        st.markdown("<h3 style='text-align:left;font-size:38px;'>Read the Rules</h3>", unsafe_allow_html=True)
+        if st.button("Click Here"):
+            st.switch_page("Introduction.py")
 
 # Displays the gameplay page once the "Play Game?" button is clicked
 elif st.session_state.game_state == "in_game":
@@ -1066,12 +1060,6 @@ elif st.session_state.game_state == "in_game":
     with col4:
         if st.button('Finish the Game', key='finish_game_button', on_click=lambda: play_with_increments(10000, 0.001)):
             pass
-
-    # c1, c2, c3, c4 = st.columns(4)
-    # with c2:
-    #     game_data_button_placeholder = st.empty()
-    # with c3:
-    #     stats_dashboard_button_placeholder = st.empty()
 
     # Create placeholders for the pie, bar, and line charts
     # These placeholders keeps the charts updating in the same spot instead of creating new ones above the old ones for every round of the game.

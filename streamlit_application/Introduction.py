@@ -5,45 +5,97 @@ st.set_page_config(page_title="Landing Page", page_icon="📚", layout="centered
 
 # Main Title/introduction for the application/page
 st.markdown("<h1 style='text-align:center;font-size:50px;'>Welcome to The Game of War!</h1>", unsafe_allow_html=True)
+st.info("""
+        The **SideBar** on your left you will allow you to navigate between the different pages of this application. You are reading the Introduction page.
+    - ***On Mobile, please tap the arrow in the upper-left corner to open the **SideBar**.***""")
 
 # Using tabs to organize content
-tabs = st.tabs(["This Application", "App Development", "Game Rules"])
+tabs = st.tabs(["This Application", "This Project", "Game Rules"])
 
 with tabs[0]:  # This Application
-    st.markdown("<h4 style='text-align:center;font-size:40px;'>This Application</h4>", unsafe_allow_html=True)
-    # st.markdown("<hr>", unsafe_allow_html=True)
+    st.subheader('This Application', divider='gray')
     st.write("")
     st.markdown("""
-    #### The SideBar
-    - To your left you will see a **SideBar** that allows you to navigate between the different pages of this application. ***On Mobile, please tap the arrow in the upper-left corner to open the sidebar.***
-        - The **Introduction** page is what you're reading right now.
-        - The **War Room** page is where you will simulate the card game "War" and view, in real-time, some statistics about the game.
-        - The **Stats Dashboard** page is where you can view some statistics about the game, who won, how many rounds it took, etc.
-        - The **War Data** Page is where all of the game data is populated. See what is going on during each round!
+    Hello! Welcome to my application and thank you for playing my game. It means a lot. The information on this page is summarized from the project itself over at my github: [https://github.com/najtompkins/automated_card_game](https://github.com/najtompkins/automated_card_game). Here are the highlights:
     """)
+    # Tabs for learning about each page in the application
+    with st.expander("📱 Web Application"):
+        st.markdown("""
+        **The Web Application**: This is the verison of the project you are experiencing now. It is a fully-deployed web application that simulates the card game War, generating player metric dashboards, comprehensive dataframes, and card_distribution charts which help visualize how the game is progressing in real-time. Simulate your own War [here](https://nathansautomatedcardgame.streamlit.app/War_Room)!
+        """)
+    with st.expander("💥 War Room"):
+        st.markdown("""
+        **The War Room**: Found on the **SideBar** or linked [here](https://nathansautomatedcardgame.streamlit.app/War_Room). This page is the crown jewel of this application. It allows you to simulate the game and view (some) of the data generated during the game in real-time, and the rest of the data after a winner has been declared.
+            """)
+        st.image("../images/streamlit_images/IncrementThroughGameApp.png")
+    with st.expander("🎛️ The Stats Dashboard"):
+        st.markdown("""
+        **The Stats Dashboard**: This page is where you can view some very unique metrics and statistics about the game as a whole, each player, who won, how many rounds it took, etc. The dashboards are designed to easily understand how the game progressed and who was winning at at the end of any given round.
+        """)
+        st.image("../images/streamlit_images/GameStatsDashboardApp.png")
+    with st.expander("📊 War Data"):
+        st.markdown("""
+        **The War Data**: The War Data page is simple but vital to the purpose of this application, as the dataframes on display there contain over 40 different metrics generated and reported throughout the game and available to the user to puruse and analyze themselves.
+            """)
+        st.image("../images/streamlit_images/GameDataframeApp.png")
 
-with tabs[1]:  # App Development
-    st.markdown("<h4 style='text-align:center;font-size:40px;'>App Development</h4>", unsafe_allow_html=True)
-    # st.markdown("<hr>", unsafe_allow_html=True)
+with tabs[1]:  # This Project
+    st.subheader('This Project', divider='blue')
+
+    st.write("**Developer:** Nathan-Andrew Tompkins")
+    st.write(f"**LinkedIn:** [Nathan-Andrew Tompkins](https://www.linkedin.com/in/nathans-tompkins)")
+    st.write(f"**Project Repository:** [https://github.com/najtompkins/automated_card_game](https://github.com/najtompkins/automated_card_game)")
     st.write("")
+    st.subheader('Purpose and History', divider='blue')
     st.markdown("""
-    
-    #### The History            
-    - Designed by Nathan-Andrew Tompkins in late 2023 and deployed early 2024, this application is a labor of love, diligence, and grit. The original purpose of this project was to practice **Python application development**. What started out as a simple exercise in logic and coding has evolved into the application you are interacting with right now. Since the beginning of this project I've developed 3 different versions of this game, all running similar-but-distinct logical structures within their code.
-
-    #### The Versions
-    - The First is, of course, the Pythonic version, designed to be run inside of a Jupyter notebook. This version utilizes the PyDeck library to create instances of decks, cards, hands, etc. When running the `set_up_game_environment()` function in its cell, followed immediately by the `play_war()` function in its cell, the program will simulate the entire game of war, from setup to declaring a winner, all while building 3 dataframes of exhaustive data on each round so that the user can see exactly what happened during the game. 
-    - The Second is, oddly enough, re-built entirely from the ground up using Visual Basic for Applications (VBA), inside of Microsoft Excel 365. This is a fully-working version of the game and presents the user with a visual dashboard at the end to see the exhaustive statistics gathered during the game's simulation.
-    - The Third version of the game is the one you are interacting with now! This version has strengths that the others do not: The ability to access this program from any supported device, a visually appealing way to see the data once the game has been fully simulated, and, last but not least, the ability to step through the game's rounds and see, in real time, how the simulation is progressing for either player!
-
-    #### The Final Product
-    - Now that you are interacting with a nearly-completed version of this months-long endeavor, please take the time to simulate a war! See how the players fare against each other as the game progresses, and feel free to check out the pages linked to the left of all of the generated data.
-    - Thanks for Playing my game! - NA
+    Designed by Nathan-Andrew Tompkins in late 2023 and deployed early 2024, this application is a labor of love, diligence, and grit. The original purpose of this project was to practice **Python application development**. What started out as a simple exercise in logic and coding has evolved into the very thing you are interacting with right now. Since the beginning of this project I've developed 3 different versions of this game, all running similar-but-distinct logical frameworks to house their code. This web-based version is the one that will be on display when this project is represented.
     """)
+    st.subheader('Project Versions (in order of development)', divider='blue')
+    project_tabs = st.tabs(["📝 Jupyter Notebook", "📊 Excel VBA", "📱 Streamlit Web App"])
+    with project_tabs[0]:
+        st.markdown("""
+        ### **Jupyter Notebook:** 
+        The un-refined first version of this project was first ploaded on **March 5th, 2024** and further developed through **April 2nd**, nearly a month later. This is, of course, a Pythonic version, designed to be run inside of a Jupyter Notebook environment. This version utilizes the PyDeck library to create instances of decks, cards, hands, etc. When running the `set_up_game_environment()` function in its cell, followed immediately by the `play_war()` function in its cell, the program will simulate the entire game of war from setup to declaring a winner. During this, the program will build 3 dataframes of exhaustive metrics on each round so that the user can see exactly what happened during the game.
+        - While this is absolutely a 'War Simulator' in functionality. This version of the program is, simply put, not designed to be used outside of development. The Jupyter environment was instrumental in the early developement of the logic and execution of the simulation, but while the file can be found [here](./ipynb_files/war_v6.ipynb), it is not intended for general use as it is simply a peek at development in this project's early stages.
+        """)
+        with st.expander("Jupyter: Notebook Imports"):
+            st.image("../images/ipynb_images/Imports.png", )
+        with st.expander("Jupyter: Compare Function"):
+            st.image("../images/ipynb_images/CompareFunction.png", )
+        with st.expander("Jupyter: Quick Dataframe"):
+            st.image("../images/ipynb_images/QuickDataframe.png", )
+        with st.expander("Jupyter: Set Up and Play"):
+            st.image("../images/ipynb_images/SetupAndPlay.png", )
+
+    with project_tabs[1]:
+        st.markdown("""
+        ### **Excel 365/VBA:** 
+        This second version was oddly enough, re-built entirely from the ground up using Visual Basic for Applications (VBA) inside of Microsoft Excel 365. This is a fully-working version of the game and presents the user with a visual dashboard at the end to see the exhaustive statistics gathered during the game's simulation. Why do I also have a version of this program written in a completely different coding language, running in a program designed for a thousand other uses than playing a card game? Because Excel is ubiquitous in the Data Analytics and Business Intelligence industry (especially for smaller businesses) and I used this same project to further refine my Excel skills by building it out in a different and unique way. Download the workbook [here](./excel_files/WarCardGame.xlsm).
+        - ***Note: This version is a proof of concept, first and foremost. It does not have the same functionality as the web application, nor is it able to run on MacOS systems. It requires the workbook to be trusted by the user (more information in the project README) and for macros to be enabled within the workbook itself before it is able to run. I am proud of this version, but it is certainly not intended for general use and is, again a proof-of-concept.***
+        """)
+        with st.expander("VBA: Deal Cards to Players"):
+            st.image("../images/excel_images/DealCards2Msg.png")
+        with st.expander("VBA: Front-End Layout"):
+            st.image("../images/excel_images/FrontEnd.png")
+        with st.expander("VBA: Player Stats Dashboard"):
+            st.image("../images/excel_images/GamePlayerStats.png")
+        with st.expander("VBA: Game Dataframe"):
+            st.image("../images/excel_images/GameDataTable.png")
+
+    with project_tabs[2]:
+        st.markdown("""
+        ### **Streamlit Web App:** 
+        The third and final version of the game is the one you are interacting with now! This web-application has strengths that the others do not: The ability to access this program from any supported device, a visually appealing way to see the data once the game has been fully simulated, and, last but not least, the ability to step through the game's rounds and see how the simulation is progressing for either player in real time!
+        """)
+    st.markdown("<hr>", unsafe_allow_html=True)
+    st.markdown("""
+        #### Play the Game for Yourself
+        Once you've read up on each version of this program, you can play the game yourself. You are interacting with a nearly-completed version of this months-long endeavor, please take the time to [simulate a war](https://nathansautomatedcardgame.streamlit.app/War_Room) or visit the project repository at my github [here](https://github.com/najtompkins/automated_card_game) to learn more about the project in depth.
+        - Thanks for Playing my game!
+        """)
 
 with tabs[2]:  # Game Rules
-    st.markdown("<h4 style='text-align:center;font-size:40px;'>Game Rules</h4>", unsafe_allow_html=True)
-    # st.markdown("<hr>", unsafe_allow_html=True)
+    st.subheader('Game Rules', divider='orange')
     st.write("")
     st.markdown("""
     #### The Goal
@@ -57,8 +109,10 @@ with tabs[2]:  # Game Rules
     - If the cards are the same rank, it is War. Each player turns up three cards face down and one card face up. The player with the higher cards takes both piles (10 cards). If the turned-up cards are again the same rank, each player places another card face down and turns another card face up. The player with the higher card takes all cards, and so on.
 
     #### How to Keep Score
-    - The game ends when one player has won all the cards.
+    The game ends when one player has won all the cards.
 
-    *Source: [https://bicyclecards.com/how-to-play/war](https://bicyclecards.com/how-to-play/war)*
-    *Note: Original (cited) rules include players dealing 2 more cards in 'war'. This program deals 3 cards face down, and one face up to then compare.* 
+    - *Source: [https://bicyclecards.com/how-to-play/war](https://bicyclecards.com/how-to-play/war)*
+    - *Note: Cited rules include players dealing 2 more cards when a  'war' occurs, one face down, another face up. This program deals 3 cards face down, and one face up.* 
     """)
+
+
