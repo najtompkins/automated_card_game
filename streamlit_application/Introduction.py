@@ -27,17 +27,17 @@ with tabs[0]:  # This Application
         st.markdown("""
         **The War Room**: Found on the **SideBar** or linked [here](https://nathansautomatedcardgame.streamlit.app/War_Room). This page is the crown jewel of this application. It allows you to simulate the game and view (some) of the data generated during the game in real-time, and the rest of the data after a winner has been declared.
             """)
-        # st.image("../images/streamlit_images/IncrementThroughGameApp.png")
+        st.image("images/streamlit_images/IncrementThroughGameApp.png")
     with st.expander("🎛️ The Stats Dashboard"):
         st.markdown("""
         **The Stats Dashboard**: This page is where you can view some very unique metrics and statistics about the game as a whole, each player, who won, how many rounds it took, etc. The dashboards are designed to easily understand how the game progressed and who was winning at at the end of any given round.
         """)
-        st.image("../images/streamlit_images/GameStatsDashboardApp.png")
+        st.image("images/streamlit_images/GameStatsDashboardApp.png")
     with st.expander("📊 War Data"):
         st.markdown("""
         **The War Data**: The War Data page is simple but vital to the purpose of this application, as the dataframes on display there contain over 40 different metrics generated and reported throughout the game and available to the user to puruse and analyze themselves.
             """)
-        st.image("../images/streamlit_images/GameDataframeApp.png")
+        st.image("images/streamlit_images/GameDataframeApp.png")
 
 with tabs[1]:  # This Project
     st.subheader('This Project', divider='blue')
@@ -59,13 +59,13 @@ with tabs[1]:  # This Project
         - While this is absolutely a 'War Simulator' in functionality. This version of the program is, simply put, not designed to be used outside of development. The Jupyter environment was instrumental in the early developement of the logic and execution of the simulation, but while the file can be found [here](./ipynb_files/war_v6.ipynb), it is not intended for general use as it is simply a peek at development in this project's early stages.
         """)
         with st.expander("Jupyter: Notebook Imports"):
-            st.image("../images/ipynb_images/Imports.png", )
+            st.image("images/ipynb_images/Imports.png", )
         with st.expander("Jupyter: Compare Function"):
-            st.image("../images/ipynb_images/CompareFunction.png", )
+            st.image("images/ipynb_images/CompareFunction.png", )
         with st.expander("Jupyter: Quick Dataframe"):
-            st.image("../images/ipynb_images/QuickDataframe.png", )
+            st.image("images/ipynb_images/QuickDataframe.png", )
         with st.expander("Jupyter: Set Up and Play"):
-            st.image("../images/ipynb_images/SetupAndPlay.png", )
+            st.image("images/ipynb_images/SetupAndPlay.png", )
 
     with project_tabs[1]:
         st.markdown("""
@@ -74,13 +74,13 @@ with tabs[1]:  # This Project
         - ***Note: This version is a proof of concept, first and foremost. It does not have the same functionality as the web application, nor is it able to run on MacOS systems. It requires the workbook to be trusted by the user (more information in the project README) and for macros to be enabled within the workbook itself before it is able to run. I am proud of this version, but it is certainly not intended for general use and is, again a proof-of-concept.***
         """)
         with st.expander("VBA: Deal Cards to Players"):
-            st.image("../images/excel_images/DealCards2Msg.png")
+            st.image("images/excel_images/DealCards2Msg.png")
         with st.expander("VBA: Front-End Layout"):
-            st.image("../images/excel_images/FrontEnd.png")
+            st.image("images/excel_images/FrontEnd.png")
         with st.expander("VBA: Player Stats Dashboard"):
-            st.image("../images/excel_images/GamePlayerStats.png")
+            st.image("images/excel_images/GamePlayerStats.png")
         with st.expander("VBA: Game Dataframe"):
-            st.image("../images/excel_images/GameDataTable.png")
+            st.image("images/excel_images/GameDataTable.png")
 
     with project_tabs[2]:
         st.markdown("""
