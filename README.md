@@ -4,7 +4,7 @@ Explore the classic card game 'War' reimagined in Python and Visual Basic for Ap
 ## Project Repository Located: [Here](https://github.com/najtompkins/automated_card_game)
 
 ### Developer: Nathan-Andrew Tompkins
-### LinkedIn: [Nathan-Andrew Tompkins](https://www.linkedin.com/in/nathan-andrew-tompkins/)
+### LinkedIn: [www.linkedin.com/in/nathan-andrew-tompkins](https://www.linkedin.com/in/nathan-andrew-tompkins/)
 
 ### Streamlit Intro Page:
 <p align="center">
