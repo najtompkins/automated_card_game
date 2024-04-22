@@ -43,7 +43,7 @@ with tabs[1]:  # This Project
     st.subheader('This Project', divider='blue')
 
     st.write("**Developer:** Nathan-Andrew Tompkins")
-    st.write(f"**LinkedIn:** [Nathan-Andrew Tompkins](https://www.linkedin.com/in/nathans-tompkins)")
+    st.write(f"**LinkedIn:** [Nathan-Andrew Tompkins](https://www.linkedin.com/in/nathan-andrew-tompkins/)")
     st.write(f"**Project Repository:** [https://github.com/najtompkins/automated_card_game](https://github.com/najtompkins/automated_card_game)")
     st.write("")
     st.subheader('Purpose and History', divider='blue')
