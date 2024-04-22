@@ -3,6 +3,9 @@
 Explore the classic card game 'War' reimagined in Python and Visual Basic for Applications (VBA), featuring implementations both as a Streamlit web app and an Excel-based experience!
 ## Project Repository Located: [Here](https://github.com/najtompkins/automated_card_game)
 
+### Developer: Nathan-Andrew Tompkins
+### LinkedIn: [Nathan-Andrew Tompkins](https://www.linkedin.com/in/nathan-andrew-tompkins/)
+
 ### Streamlit Intro Page:
 <p align="center">
     <img src="./images/streamlit_images/WarIntroApp.png" alt="First Image" width="45%"/>
@@ -51,7 +54,7 @@ Explore the classic card game 'War' reimagined in Python and Visual Basic for Ap
         <img src="./images/streamlit_images/Player1DashboardApp.png" alt="Second Image" width="33%"/>
         <img src="./images/streamlit_images/Player2DashboardApp.png" alt="First Image" width="33%"/>
         </p>
-    1. The below line charts are rendered at the bottom of each player's dashboard. These charts are much more extensive in the data that they display and allow the user to better visualize how each player was doing throughout the rounds, how many times the players traded dominance (holding the most cards) or how many wars there were in total.
+    1. The below line charts are rendered at the bottom of each player's dashboard. These charts are much more extensive in the data that they display and allow the user to better visualize how each player was doing throughout the rounds, how many times the players traded dominance (holding the most cards) or how many Wars there were in total.
         <p align="center" vertical_align='center'>
         <img src="./images/streamlit_images/EndOfGameWarChartApp.png" alt="Third Image" width="70%"/>
         </p>
@@ -64,7 +67,7 @@ Explore the classic card game 'War' reimagined in Python and Visual Basic for Ap
         <img src="./images/streamlit_images/P1DataframeApp.png" alt="Second Image" width="33%"/>
         <img src="./images/streamlit_images/P2DataframeApp.png" alt="First Image" width="33%"/>
         </p>
-6. **The Code**: All of this operates on a few thousand lines of code. Below are a few snippets of that code so that you can get an understanding of how this was structured in the background. All of this code is avaialable to puruse over [here](./streamlit_application) in the streamlit_application directory as well.
+6. **The Code**: All of this operates on a few thousand lines of code. Below are a few snippets of that code so that you can get an understanding of how this was structured in the background. The code in full is available to peruse over in the [streamlit_application directory](./streamlit_application).
         <p align="center" vertical_align='center'>
         <img src="./images/streamlit_images/LandingPageCode.png" alt="Third Image" width="33%"/>
         <img src="./images/streamlit_images/WarRoomCode.png" alt="Third Image" width="33%"/>
@@ -78,10 +81,10 @@ Explore the classic card game 'War' reimagined in Python and Visual Basic for Ap
 
 ### **Excel VBA Workbook**: - [Download Excel Workbook](./excel_files/WarCardGame.xlsm)
 1. **Summary**: Dive into the Excel adaptation of 'War' where game logic and visual feedback are merged. This version highlights the adaptability of VBA in creating interactive, data-rich user experiences, animations, and dashboards. This version is robust but imperfect. Designed as a proof-of-concept it is a working prototype which takes the user from and introduction to the game's rules all of the way through to a custom dashboard of game and player metrics.
-    - *Note that the workbook must be selected as 'trusted' ***prior to opening the file for the first time***. Once open, you must select the 'Enable Macros' button at the top of the screen for the excel version of this program to run properly.* (*More Information about trusting a file [here](https://support.microsoft.com/en-us/topic/a-potentially-dangerous-macro-has-been-blocked-0952faa0-37e7-4316-b61d-5b5ed6024216)*)
-    - *Note as well that this version was developed for Windows. As such, when run on MacOS the program encounters an error which renders it unusable. This is unsurprising as Microsoft's support for extensive VBA/Macro usage on MacOS is not exhaustive.*
+    - *Note: Due to Microsoft's robust security settings around the usage of macros in workbooks downloaded from the internet (such as the one linked above,) after you have downloaded it, the file must be 'trusted' ***prior to opening the workbook for the first time***. Once open, you must select the 'Enable Macros' button at the top of the screen for the Excel version of this program to run properly.* (*For more information about trusting a file, check out Microsoft's own page about it [here](https://support.microsoft.com/en-us/topic/a-potentially-dangerous-macro-has-been-blocked-0952faa0-37e7-4316-b61d-5b5ed6024216).*)
+    - *Note (again): This workbook version was developed for Windows using Microsoft Excel 365. When run on MacOS (tested on: Sonoma 14.0) the macros encounter an error which render it unusable. This is unsurprising as Microsoft's support for extensive VBA/Macro usage on MacOS is not exhaustive. Re-testing on the Windows OS does not replicate this error.*
 
-3. **The Introduction**: Once the workbook has been trusted you will be greeted with an animation (in excel? Yes! But I can't link to it here in the ReadMe) that renders the words "LET'S GO TO... WAR!" one after the other. The user is then brought to the Game Rules worksheet. This worksheet explains the rules of the game and also contains a button that, once pressed, initialized the game environment set-up. Original War rules are cited from [here](https://bicyclecards.com/how-to-play/war) beneath the cells.
+3. **The Introduction**: Once the workbook has been trusted you will be greeted with an animation (in Excel?? Yes! But I can't link to it here in the ReadMe) that renders the words "LET'S GO TO... WAR!" one after the other. The user is then brought to the Game Rules worksheet. This worksheet explains the rules of the game and also contains a button that, once pressed, initialized the game environment set-up. Original War rules are cited from [here](https://bicyclecards.com/how-to-play/war) beneath the cells.
         <p align="center" vertical_align='center'>
         <img src="./images/excel_images/GameRules.png" alt="Third Image" width="90%"/>
         </p>
@@ -92,7 +95,7 @@ Explore the classic card game 'War' reimagined in Python and Visual Basic for Ap
         <img src="./images/excel_images/DealCards2Msg.png" alt="Third Image" width="30%"/>
         </p>
 
-4. **The Front End**: The 'Front End' worksheet, previously generated once the player clicked 'Play the Game!' now changes into it's proper form: Two players, one on either side, a comparison table in the center, and discard piles off to the sides. Another 'Play War!' button is presented that, once pressed, simulates the entirety of the game. Unlike the Streamlit App version above you cannot increment through the rounds and must wait for the game to be simulated. A winner must be declared before the user can interact with Excel again, as this is a limitation to running macros so extensively.
+4. **The Front End**: The 'Front End' worksheet, previously generated once the player clicked 'Play the Game!' now changes into it's proper form: Two players, one on either side, a comparison table in the center, and discard piles off to the sides. Another 'Play War!' button is presented that, once pressed, simulates the entire game. Unlike the Streamlit App version above you cannot increment through the rounds and must wait for the game to be simulated. A winner must be declared before the user can interact with Excel again, as this is a limitation to running macros so extensively.
         <p align="center" vertical_align='center'>
         <img src="./images/excel_images/FrontEnd.png" alt="Third Image" width="90%"/>
         </p>
@@ -112,12 +115,12 @@ Explore the classic card game 'War' reimagined in Python and Visual Basic for Ap
         <p align="center" vertical_align='center'>
         <img src="./images/excel_images/TotalsWon.png" alt="Third Image" width="50%"/>
         </p>
-6. **Generated Game Data**: After all has been done, the user is free to explore the other worksheets. A few buttons exist between the 4 worksheets that allow the user the simulate another game. The 'Game Data' worksheet presents the use with every metric recorded during the game. Longer games result in longer tables, shorter games, the opposite. Each row is either a complete round, or a sub-round within a war.
+6. **Generated Game Data**: After all has been done, the user is free to explore the other worksheets. A few buttons exist between the 4 worksheets that allow the user the simulate another game. The 'Game Data' worksheet presents the use with every metric recorded during the game. Longer games result in longer tables, shorter games, the opposite. Each row is either a complete round, or a sub-round within a War.
         <p align="center" vertical_align='center'>
         <img src="./images/excel_images/GameDataTable.png" alt="Third Image" width="100%"/>
         </p>
-7. **Hidden Macros**: As mentioned, this version operates using macros. Another word for macros in this context are subroutines. Everything from comparing card values to each other using Index/Match functions, to shuffling the starting deck, creating the front-end, or dealing cards back into the players' hands when they've run out... they are all subroutines developed for this workbook. Take a look at a few below. 
-    **Note: The shuffling algorithm sub was generated using ChatGPT 4 on 3/16/24. This entire codeblock was generated so that development effort could be spent on the rest of the program. GPT was also utilized in other areas, though mostly for aesthetic and UX purposes.**
+7. **Hidden Macros**: As mentioned, this version operates using macros. Another word for macros in this context are subroutines. Everything from comparing card values to each other using Index/Match functions, to shuffling the starting deck, creating the front end, or dealing cards back into the players' hands when they've run out... they are all subroutines developed for this workbook. Take a look at a few below. 
+    - **Note: The shuffling algorithm sub was generated using ChatGPT 4 on 3/16/24. This entire codeblock was generated so that development effort could be spent on the rest of the program. GPT was also utilized in other areas throughout the program, though mostly for aesthetic and UX purposes.**
         <p align="center" vertical_align='center'>
         <img src="./images/excel_images/DealToComparisonCode.png" alt="Third Image" width="33%"/>
         <img src="./images/excel_images/MakeEverythingCode.png" alt="Third Image" width="33%"/>
@@ -129,7 +132,7 @@ Explore the classic card game 'War' reimagined in Python and Visual Basic for Ap
         </p>
 
 ### **Python Implementation**: - [View Notebook](./ipynb_files/war_v6_data.ipynb)
-1. **Summary**: Peek into (or use!) the Jupyter Notebook version of 'War'. This version uses custom functions for dealing cards, handling comparisons, wars, data generation/reporting and declaring a winner after any number of game rounds. This is the original working code-base for this game upon which the Streamlit version is built. It allows the user to run each portion of the code and before running the next. The power of this version comes from first running the (`set_up_game_environment()`) function cell followed by the (`play_war()`) function cell. The latter will output round information via print-statements. Round and game information generated here is available in the dataframes in in the final cells of the code.
+1. **Summary**: Peek into (or use!) the Jupyter Notebook version of 'War'. This version uses custom functions for dealing cards, handling comparisons, Wars, data generation/reporting and declaring a winner after any number of game rounds. This is the original working code-base for this game upon which the Streamlit version is built. It allows the user to run each portion of the code and before running the next. The power of this version comes from first running the (`set_up_game_environment()`) function cell followed by the (`play_war()`) function cell. The latter will output round information via print-statements. Round and game information generated here is available in the dataframes in in the final cells of the code.
         <p align="center" vertical_align='center'>
         <img src="./images/ipynb_images/SetupAndPlay.png" alt="Third Image" width="100%"/>
         </p>
@@ -183,9 +186,10 @@ Restructured st.metric elements into 4 columns on the Game Data tab.
 ### Enhanced Introduction Page
 - **April 21, 2024**: Enhanced the Introduction page to bring it closer inline to this README, linking to it and so that the project's cohesion between documentation and application are closer in step, adding tabular sections for easier navigation, and some of the images also linked above.
 
+-**April 22, 2024**: Fixed errant hyperlinks on the Introduction page of the application, added buttons for navigation between pages. Some previous hyperlinks opened a new session of the app which confuses the player if they've simulated a War and no longer see the data becuase of these new sessions.
 
 ### Future Features
- - **Dataframe Conditional Formatting**: In all dataframe elements present in the application each row will be subtly colored to the corresponding winner of that round, and if the case where there is a war and there is not round winner, a redish color will appear.
+ - **Dataframe Conditional Formatting**: In all dataframe elements present in the application each row will be subtly colored to the corresponding winner of that round, and if the case where there is a War and there is not round winner, a redish color will appear.
  - **Custom Name and Colors for Players**: In the Landing Page I want to add text-box inputs that will allow the user to choose their name (defaulted to Player 1 or 2 at this moment, hard-coded) and colors to represent them as either player during the simulation game and subsequent metrics.
 
 
@@ -195,15 +199,14 @@ Restructured st.metric elements into 4 columns on the Game Data tab.
 
 ## Jupyter Notebook War Simulator.
 ### Initial Exploration
-- **March 1, 2024**: First iteration deployed. The program runs indefinitely, highlighting the need for refined comparison and win conditions. [View Version 1](./ipynb%20files/war_v1.ipynb)
-
+- **March 1, 2024**: First iteration deployed. The program runs indefinitely, highlighting the need for refined comparison and win conditions. [View Version 1](./ipynb_files/war_v1.ipynb)
 ### Refinements and Debugging
 - **March 5, 2024**: Introduced a more structured game flow. [View Version 2](./ipynb_files/war_v2.ipynb)
 - **March 12, 2024**: Addressed issues in game logic, still perfecting the win conditions. [View Version 3](./ipynb_files/war_v3.ipynb)
 - **March 15, 2024**: Achieved a fully functional game with robust handling of game states and card permenance. [View Version 4](./ipynb_files/war_v4.ipynb)
 
 ### Advanced Enhancements
-- **April 2, 2024**: Launched a highly optimized version, integrating sophisticated data structures for the generation of game and round data into Pandas Dataframes for further analytics. [View Version 6](./ipynb_files/war_v6.ipynb)
+- **April 2, 2024**: Launched a highly optimized version, integrating sophisticated data structures for the generation of game and round data into Pandas Dataframes for further analytics. [View Version 6](./ipynb_files/war_v6_data.ipynb)
 
 
 ## Lessons Learned
