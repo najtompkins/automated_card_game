@@ -27,7 +27,7 @@ with tabs[0]:  # This Application
         st.markdown("""
         **The War Room**: Found on the **SideBar** or linked [here](https://nathansautomatedcardgame.streamlit.app/War_Room). This page is the crown jewel of this application. It allows you to simulate the game and view (some) of the data generated during the game in real-time, and the rest of the data after a winner has been declared.
             """)
-        st.image("../images/streamlit_images/IncrementThroughGameApp.png")
+        # st.image("../images/streamlit_images/IncrementThroughGameApp.png")
     with st.expander("🎛️ The Stats Dashboard"):
         st.markdown("""
         **The Stats Dashboard**: This page is where you can view some very unique metrics and statistics about the game as a whole, each player, who won, how many rounds it took, etc. The dashboards are designed to easily understand how the game progressed and who was winning at at the end of any given round.
