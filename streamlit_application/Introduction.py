@@ -21,13 +21,13 @@ with tabs[0]:  # This Application
     # Tabs for learning about each page in the application
     with st.expander("📱 Web Application"):
         st.markdown("""
-        **The Web Application**: This is the verison of the project you are experiencing now. It is a fully-deployed web application that simulates the card game War, generating player metric dashboards, comprehensive dataframes, and card_distribution charts which help visualize how the game is progressing in real-time.
+        **The Web Application**: This is the verison of the project you are experiencing now. It is a fully-deployed web application that simulates the card game War, generating player metric dashboards, comprehensive dataframes, and card distribution charts which help visualize how the game is progressing in real-time.
         """)
         if st.button("Simulate Your Own War Now!"):
             st.switch_page("pages/1War_Room.py")
     with st.expander("💥 War Room"):
         st.markdown("""
-        **The War Room**: Found on the **SideBar** or by clicking the button below. This page is the crown jewel of this application. It allows you to simulate the game and view (some) of the data generated during the game in real-time, and the rest of the data after a winner has been declared.
+        **The War Room**: Is found on the **SideBar** or by clicking the button below. This page is the crown jewel of this application. It allows you to simulate the game and view (some) of the data generated during the game in real-time, and the rest of the data after a winner has been declared.
             """)
         if st.button("Visit the War Room!"):
             st.switch_page("pages/1War_Room.py")
@@ -39,7 +39,7 @@ with tabs[0]:  # This Application
         st.image("images/streamlit_images/GameStatsDashboardApp.png")
     with st.expander("📊 War Data"):
         st.markdown("""
-        **The War Data**: The War Data page is simple but vital to the purpose of this application, as the dataframes on display there contain over 40 different metrics generated and reported throughout the game. These very metrics power the metrics on the **Stats Dashboard** page. The dataframes are available to the user to puruse, download, and analyze the game in detail for themselves.  This page is populated once a War has begun in the **War Room**.
+        **The War Data**: The War Data page is simple but vital to the purpose of this application, as the dataframes on display there contain over 40 different metrics generated and reported throughout the game. These very metrics power the metrics on the **Stats Dashboard** page. The dataframes are available to the user to puruse, download, or analyze the game in detail for themselves.  This page is populated once a War has begun in the **War Room**.
             """)
         st.image("images/streamlit_images/GameDataframeApp.png")
 
@@ -52,14 +52,14 @@ with tabs[1]:  # This Project
     st.write("")
     st.subheader('Purpose and History', divider='blue')
     st.markdown("""
-    Designed by Nathan-Andrew Tompkins in late 2023 and deployed early 2024, this application is a labor of love, diligence, and grit. The original purpose of this project was to practice **Python application development**. What started out as a simple exercise in logic and coding has evolved into the very thing you are interacting with right now. Since the beginning of this project I've developed 3 different versions of this game, all running similar-but-distinct logical frameworks to house their code. This web-based version is the one that will be on display when this project is represented.
+    Designed by Nathan-Andrew Tompkins in late 2023 and deployed early 2024, this application is a labor of love, diligence, and grit. The original purpose of this project was to practice **Python application development**. What started out as a simple exercise in logic and coding has evolved into the very thing you are interacting with right now. Since the beginning of this project I've developed 3 different versions of this game, all running similar-but-distinct logical frameworks to house their code. This web-based version is what will be on display whenenever this project is represented.
     """)
     st.subheader('Project Versions (in order of development)', divider='blue')
     project_tabs = st.tabs(["📝 Jupyter Notebook", "📊 Excel VBA", "📱 Streamlit Web App"])
     with project_tabs[0]:
         st.markdown("""
         ### **Jupyter Notebook:** 
-        The un-refined first version of this project was first ploaded on **March 5th, 2024** and further developed through **April 2nd**, nearly a month later. This is, of course, a Pythonic version, designed to be run inside of a Jupyter Notebook environment. This version utilizes the PyDeck library to create instances of decks, cards, hands, etc. When running the `set_up_game_environment()` function in its cell, followed immediately by the `play_war()` function in its cell, the program will simulate the entire game of war from setup to declaring a winner. During this, the program will build 3 dataframes of exhaustive metrics on each round so that the user can see exactly what happened during the game.
+        The un-refined first version of this project was first uploaded on **March 5th, 2024** and further developed through **April 2nd**, nearly a month later. This is, of course, a Pythonic version, designed to be run inside of a Jupyter Notebook environment. This version utilizes the PyDeck library to create instances of decks, cards, hands, etc. When running the `set_up_game_environment()` function in its cell, followed immediately by the `play_war()` function in its cell, the program will simulate the entire game of war from setup to declaring a winner. During this, the program will build 3 dataframes of exhaustive metrics on each round so that the user can see exactly what happened during the game.
         - While this is absolutely a 'War Simulator' in functionality. This version of the program is, simply put, not designed to be used outside of development. The Jupyter environment was instrumental in the early developement of the logic and execution of the simulation, but while the file can be found [here](https://github.com/najtompkins/automated_card_game/blob/main/ipynb_files/war_v6_data.ipynb), it is not intended for general use as it is simply a peek at development in this project's early stages.
         """)
         with st.expander("Jupyter: Notebook Imports"):
@@ -94,7 +94,7 @@ with tabs[1]:  # This Project
     st.markdown("<hr>", unsafe_allow_html=True)
     st.markdown("""
         #### Play the Game for Yourself
-        Once you've read up on each version of this program, you can play the game yourself. You are interacting with a nearly-completed version of this months-long endeavor, please take the time to simulate your own War in the **War Room** or visit the project repository [here](https://github.com/najtompkins/automated_card_game) to learn more about this project in depth.
+        Once you've read up on each version of this program, you can play the game yourself. You are interacting with a nearly-completed version of this months-long endeavor, so please take the time to simulate your own War in the **War Room** or visit the project repository [here](https://github.com/najtompkins/automated_card_game) to learn more about this project in depth.
         - Thanks for Playing my game!
         """)
     if st.button("Simulate Your Own War Now!", key="from_thank_you_1"):
