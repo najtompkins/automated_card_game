@@ -13,7 +13,8 @@ st.info("""
 tabs = st.tabs(["This Application", "This Project", "Game Rules"])
 
 with tabs[0]:  # This Application
-    st.subheader('This Application', divider='gray')
+    st.subheader('This Application')
+    st.divider()
     st.write("")
     st.markdown("""
     Hello! Welcome to my application and thank you for playing my game. It means a lot. The information on this page is summarized from the project itself over at my github: [github.com/najtompkins/automated_card_game](https://github.com/najtompkins/automated_card_game). Here are the highlights:
@@ -44,17 +45,17 @@ with tabs[0]:  # This Application
         st.image("images/streamlit_images/GameDataframeApp.png")
 
 with tabs[1]:  # This Project
-    st.subheader('This Project', divider='blue')
+    st.subheader('This Project')
 
     st.write("**Developer:** Nathan-Andrew Tompkins")
     st.write(f"**LinkedIn:** [Nathan-Andrew Tompkins](https://www.linkedin.com/in/nathan-andrew-tompkins/)")
     st.write(f"**Project Repository:** [https://github.com/najtompkins/automated_card_game](https://github.com/najtompkins/automated_card_game)")
     st.write("")
-    st.subheader('Purpose and History', divider='blue')
+    st.subheader('Purpose and History')
     st.markdown("""
     Designed by Nathan-Andrew Tompkins in late 2023 and deployed early 2024, this application is a labor of love, diligence, and grit. The original purpose of this project was to practice **Python application development**. What started out as a simple exercise in logic and coding has evolved into the very thing you are interacting with right now. Since the beginning of this project I've developed 3 different versions of this game, all running similar-but-distinct logical frameworks to house their code. This web-based version is what will be on display whenenever this project is represented.
     """)
-    st.subheader('Project Versions (in order of development)', divider='blue')
+    st.subheader('Project Versions (in order of development)')
     project_tabs = st.tabs(["📝 Jupyter Notebook", "📊 Excel VBA", "📱 Streamlit Web App"])
     with project_tabs[0]:
         st.markdown("""
@@ -102,7 +103,7 @@ with tabs[1]:  # This Project
 
 
 with tabs[2]:  # Game Rules
-    st.subheader('Game Rules', divider='orange')
+    st.subheader('Game Rules')
     st.write("")
     st.markdown("""
     #### The Goal
