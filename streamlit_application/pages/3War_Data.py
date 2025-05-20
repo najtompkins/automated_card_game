@@ -41,13 +41,16 @@ else:
     tab1, tab2, tab3 = st.tabs(["Game Data", "Player 1 Data", "Player 2 Data"])
 
     with tab1:
-        st.subheader('Game Data', divider='gray')
+        st.subheader('Game Data')
+        st.divider()
         st.dataframe(Game_Statistics)
 
     with tab2:
-        st.subheader('Player 1 Data', divider='blue')
+        st.subheader('Player 1 Data')
+        st.divider()
         st.dataframe(Player_1_Statistics)
 
     with tab3:
-        st.subheader('Player 2 Data', divider='orange')
+        st.subheader('Player 2 Data')
+        st.divider()
         st.dataframe(Player_2_Statistics)

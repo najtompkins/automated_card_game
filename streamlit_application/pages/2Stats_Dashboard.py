@@ -111,8 +111,8 @@ else:
     tab1, tab2, tab3 = st.tabs(["Game Data", "Player 1 Data", "Player 2 Data"])
 
     with tab1:
-        st.subheader('Game Data', divider='gray')
-
+        st.subheader('Game Data')
+        st.divider()
         if game_winner == 1 or game_winner == 2:
             st.markdown(f"<h4 style='text-align:center;font-size:30px;color:{color};'>Player {game_winner} won the Game after {rounds_total} rounds!</h4>", unsafe_allow_html=True)
         
@@ -165,8 +165,8 @@ else:
         # st.dataframe(Game_Statistics)
 
     with tab2:
-        st.subheader('Player 1 Data', divider='blue')
-
+        st.subheader('Player 1 Data')
+        st.divider()
         if game_winner == 1:
             st.markdown(f"<h4 style='text-align:center;font-size:30px;color:{color};'>Player {game_winner} won the Game after {rounds_total} rounds!</h4>", unsafe_allow_html=True)
         elif game_winner == 2:
@@ -245,8 +245,8 @@ else:
 
 
     with tab3:
-        st.subheader('Player 2 Data', divider='orange')
-
+        st.subheader('Player 2 Data')
+        st.divider()
         if game_winner == 2:
             st.markdown(f"<h4 style='text-align:center;font-size:30px;color:{color};'>Player {game_winner} won the Game after {rounds_total} rounds!</h4>", unsafe_allow_html=True)
         elif game_winner == 1:
