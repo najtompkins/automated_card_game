@@ -46,6 +46,7 @@ with tabs[0]:  # This Application
 
 with tabs[1]:  # This Project
     st.subheader('This Project')
+    st.divider()
 
     st.write("**Developer:** Nathan-Andrew Tompkins")
     st.write(f"**LinkedIn:** [Nathan-Andrew Tompkins](https://www.linkedin.com/in/nathan-andrew-tompkins/)")
@@ -104,6 +105,7 @@ with tabs[1]:  # This Project
 
 with tabs[2]:  # Game Rules
     st.subheader('Game Rules')
+    st.divider()
     st.write("")
     st.markdown("""
     #### The Goal
