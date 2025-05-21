@@ -1,5 +1,6 @@
 import streamlit as st
-from streamlit_extras.metric_cards import style_metric_cards, switch_page
+from streamlit_extras.metric_cards import style_metric_cards
+from streamlit_extras.switch_page_button import switch_page
 import pandas as pd
 import plotly.express as px
 

@@ -1032,7 +1032,7 @@ if st.session_state.game_state == "before_game":
     with column2:
         st.markdown("<h3 style='text-align:left;font-size:38px;'>Read the Rules</h3>", unsafe_allow_html=True)
         if st.button("Click Here"):
-            switch_page("Introduction.py")
+            switch_page("Introduction")
 
 # Displays the gameplay page once the "Play Game?" button is clicked
 elif st.session_state.game_state == "in_game":
