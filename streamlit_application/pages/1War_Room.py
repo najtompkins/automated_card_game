@@ -995,7 +995,7 @@ def build_data_page():
 
     # # Update Button placeholders
     # if game_data_button_placeholder.button("See the Game Data"): # Change this to Game Stats when that page is built-out
-    #         st.switch_page("pages/3War_Data.py")
+    #         st.switch_page("pages/War_Data.py")
     # if stats_dashboard_button_placeholder.button("See the Stats Dashboard"): # Change this to Game Stats when that page is built-out
     #         st.switch_page("pages/2War_Stats.py")    # Create placeholders for the pie, bar, and line charts
             
@@ -1099,10 +1099,10 @@ elif st.session_state.game_state == "after_game":
     columns1, columns2 = st.columns(2)
     with columns1:
         if st.button("See the Generated Stats Dashboard", key='leave_from_post_game_to_stats_dashboard'):
-            switch_page("2Stats_Dashboard")
+            switch_page("Stats_Dashboard")
     with columns2:
         if st.button("See all of the War Data", key='leave_from_post_game_to_war_data'):
-            switch_page("3War_Data")
+            switch_page("War_Data")
     # c1, c2, c3, c4 = st.columns(4)
     # with c2:
     #     game_data_button_placeholder = st.empty()
