@@ -1,5 +1,5 @@
 import streamlit as st
-from streamlit_extras.metric_cards import style_metric_cards
+from streamlit_extras.metric_cards import style_metric_cards, switch_page
 import pandas as pd
 import plotly.express as px
 
@@ -13,7 +13,7 @@ if "Game_Statistics" not in st.session_state or len(st.session_state.Game_Statis
     col1, col2, col3 = st.columns(3)
     with col2:
         if st.button("Go to the War Room"):
-            st.switch_page("pages/1War_Room.py")
+            switch_page("1War_Room")
 else:
 
     # Assign the game statistics session_State object (pandas DF) to the variable 'Game_Statistics'
@@ -119,7 +119,7 @@ else:
         if not game_winner:
             st.write("No winner to declare or data to display for the Game.")
             if st.button("Go to the War Room", key='leave_from_game_stats_dashboard'):
-                st.switch_page("pages/1War_Room.py")
+                switch_page("1War_Room")
 
         row2_col1, row2_col2= st.columns(2)
         with row2_col1:
@@ -176,7 +176,7 @@ else:
             # st.markdown(f"<h4 style='text-align:center;font-size:30px;color:{color};'>Player {game_winner} Wins the Game after {rounds_total} rounds!</h4>", unsafe_allow_html=True)
             st.write("No winner to declare or data to display for Player 1.")
             if st.button("Go to the War Room", key='leave_from_player_1_stats_dashboard'):
-                st.switch_page("pages/1War_Room.py")
+                switch_page("1War_Room")
         
 
         row3_col1, row3_col2, row3_col3 = st.columns(3)
@@ -255,7 +255,7 @@ else:
         if not game_winner:
             st.write("No winner to declare or data to display for Player 2.")
             if st.button("Go to the War Room", key='leave_from_player_2_stats_dashboard'):
-                st.switch_page("pages/1War_Room.py")
+                switch_page("1War_Room")
 
         row3_col1, row3_col2, row3_col3 = st.columns(3)
         with row3_col1:
@@ -440,7 +440,7 @@ else:
         with st.expander("Peek at the Player 1 Data"):
             st.dataframe(Player_1_Statistics)
         if st.button("See All of the Datasets", key='leave_from_player_1_stats_dashboard_after_game'):
-            st.switch_page("pages/3War_Data.py")
+            switch_page("3War_Data")
     with button_col3:
         with st.expander("Peek at the Player 2 Data"):
             st.dataframe(Player_2_Statistics)

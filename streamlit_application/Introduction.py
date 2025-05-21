@@ -1,4 +1,6 @@
 import streamlit as st
+from streamlit_extras.switch_page_button import switch_page  # ✅ correct import
+
 
 # Set page configuration with title and books icon
 st.set_page_config(page_title="Landing Page", page_icon="📚", layout="centered")
@@ -25,13 +27,13 @@ with tabs[0]:  # This Application
         **The Web Application**: This is the verison of the project you are experiencing now. It is a fully-deployed web application that simulates the card game War, generating player metric dashboards, comprehensive dataframes, and card distribution charts which help visualize how the game is progressing in real-time.
         """)
         if st.button("Simulate Your Own War Now!"):
-            st.switch_page("pages/1War_Room.py")
+            switch_page("1War_Room")
     with st.expander("💥 War Room"):
         st.markdown("""
         **The War Room**: Is found on the **SideBar** or by clicking the button below. This page is the crown jewel of this application. It allows you to simulate the game and view (some) of the data generated during the game in real-time, and the rest of the data after a winner has been declared.
             """)
         if st.button("Visit the War Room!"):
-            st.switch_page("pages/1War_Room.py")
+            switch_page("1War_Room")
         st.image("images/streamlit_images/IncrementThroughGameApp.png")
     with st.expander("🎛️ The Stats Dashboard"):
         st.markdown("""
@@ -100,7 +102,7 @@ with tabs[1]:  # This Project
         - Thanks for Playing my game!
         """)
     if st.button("Simulate Your Own War Now!", key="from_thank_you_1"):
-        st.switch_page("pages/1War_Room.py")
+        switch_page("1War_Room")
 
 
 with tabs[2]:  # Game Rules

@@ -1,4 +1,5 @@
 import streamlit as st
+from streamlit_extras.switch_page_button import switch_page
 import numpy as np
 import pandas as pd
 
@@ -16,7 +17,7 @@ if "Game_Statistics" not in st.session_state or len(st.session_state.Game_Statis
     col1, col2, col3 = st.columns(3)
     with col2:
         if st.button("Go to the War Room"):
-            st.switch_page("pages/1War_Room.py")
+            switch_page("1War_Room")
 else:
 
     # Assign the game statistics session_State object (pandas DF) to the variable 'Game_Statistics'

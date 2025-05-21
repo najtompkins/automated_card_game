@@ -2,6 +2,7 @@ import pydealer as pyd # For card/stack/deck classes
 from time import sleep # For optional delay between rounds
 import pandas as pd # For dataframes
 import streamlit as st # For Streamlit application framework
+from streamlit_extras.switch_page_button import switch_page
 import plotly.graph_objects as go # For plotting graphs
 import plotly.express as px
 import warnings # For suppressing warnings in the terminal
@@ -1031,7 +1032,7 @@ if st.session_state.game_state == "before_game":
     with column2:
         st.markdown("<h3 style='text-align:left;font-size:38px;'>Read the Rules</h3>", unsafe_allow_html=True)
         if st.button("Click Here"):
-            st.switch_page("Introduction.py")
+            switch_page("Introduction.py")
 
 # Displays the gameplay page once the "Play Game?" button is clicked
 elif st.session_state.game_state == "in_game":
@@ -1098,10 +1099,10 @@ elif st.session_state.game_state == "after_game":
     columns1, columns2 = st.columns(2)
     with columns1:
         if st.button("See the Generated Stats Dashboard", key='leave_from_post_game_to_stats_dashboard'):
-            st.switch_page("pages/2Stats_Dashboard.py")
+            switch_page("2Stats_Dashboard")
     with columns2:
         if st.button("See all of the War Data", key='leave_from_post_game_to_war_data'):
-            st.switch_page("pages/3War_Data.py")
+            switch_page("3War_Data")
     # c1, c2, c3, c4 = st.columns(4)
     # with c2:
     #     game_data_button_placeholder = st.empty()
