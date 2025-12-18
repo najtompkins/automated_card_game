@@ -961,7 +961,7 @@ def build_data_page():
 
     fig_line.update_layout(legend=dict(x=0.5, xanchor="center", y=1.0, yanchor="bottom", orientation="h"), legend_title_text="")
 
-    line_chart_placeholder.plotly_chart(fig_line, use_container_width=True)
+    line_chart_placeholder.plotly_chart(fig_line, use_container_width=True, key="line_chart_realtime_card_distribution")
 
 
     # For the pie chart
@@ -981,7 +981,7 @@ def build_data_page():
     # set the size and removing the legend
     fig_pie.update_layout(width=300, height=400, showlegend=False, title='Card Ownership', title_x=0, margin=dict(l=0, r=0, t=30, b=0))
     # update the pie chart placeholder
-    pie_chart_placeholder.plotly_chart(fig_pie)
+    pie_chart_placeholder.plotly_chart(fig_pie, key="pie_chart_realtime_card_distribution")
 
     # Create the bar chart using streamlit
     fig_bar = go.Figure(data=[
@@ -991,7 +991,7 @@ def build_data_page():
     # remove the legend
     fig_bar.update_layout(barmode='group', showlegend=False, dragmode=False, title='Rounds Won', title_x=0, margin=dict(l=0, r=0, t=30, b=0))
     # update the bar chart placeholder
-    bar_chart_placeholder.plotly_chart(fig_bar, use_container_width=True)
+    bar_chart_placeholder.plotly_chart(fig_bar, use_container_width=True, key="bar_chart_realtime_winloss")
 
     # # Update Button placeholders
     # if game_data_button_placeholder.button("See the Game Data"): # Change this to Game Stats when that page is built-out
