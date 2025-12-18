@@ -1110,13 +1110,13 @@ elif st.session_state.game_state == "after_game":
     #     stats_dashboard_button_placeholder = st.empty()
 
     # These placeholders keeps the charts updating in the same spot instead of creating new ones above the old ones for every round of the game.
-    # co1, co2 = st.columns(2)
-    # with co1:
-    #     pie_chart_placeholder = st.empty()
-    # with co2:
-    #     bar_chart_placeholder = st.empty()
+    co1, co2 = st.columns(2)
+    with co1:
+        pie_chart_placeholder = st.empty()
+    with co2:
+        bar_chart_placeholder = st.empty()
 
-    # line_chart_placeholder = st.empty()
+    line_chart_placeholder = st.empty()
 
     # Build the data page using the build_data_page() function
     build_data_page()
