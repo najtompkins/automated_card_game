@@ -919,7 +919,7 @@ def build_data_page():
     Card_Distributions['Total NonWar Cards Dealt In Round'] = st.session_state.Game_Statistics['Total NonWar Cards Dealt In Round'].astype(int)
     Card_Distributions['Total War Cards Dealt In Round'] = st.session_state.Game_Statistics['Total War Cards Dealt In Round'].astype(int)
     Card_Distributions['Total Cards Dealt In Round'] = st.session_state.Game_Statistics['Total Cards Dealt In Round'].astype(int)
-    Card_Distributions.drop_duplicates(subset=['Round Number'], keep='last')
+    Card_Distributions = Card_Distributions.drop_duplicates(subset=['Round Number'], keep='last').sort_values('Round Number')
 
     # Get the last value in the Player_1_Statistics['Total Player 1 Cards'] column
     try:
@@ -939,23 +939,25 @@ def build_data_page():
 
     fig_line = px.line(Card_Distributions, x='Round Number', y=['Total Player 1 Cards', 'Total Player 2 Cards'], color_discrete_map={"Total Player 1 Cards": "#429EBD", "Total Player 2 Cards": "#F7AD19"}, labels={ "value": "Total Cards", "variable": "Players"})
 
-    # # Update legend names
-    # fig_line.for_each_trace(lambda t: t.update(name=t.name.replace("Total Player 1 Cards", "Player 1's Total Cards")))
-    # fig_line.for_each_trace(lambda t: t.update(name=t.name.replace("Total Player 2 Cards", "Player 2's Total Cards")))
+    # Update legend names
+    fig_line.for_each_trace(lambda t: t.update(name=t.name.replace("Total Player 1 Cards", "Player 1's Total Cards")))
+    fig_line.for_each_trace(lambda t: t.update(name=t.name.replace("Total Player 2 Cards", "Player 2's Total Cards")))
+    fig_line.update_traces(mode="lines+markers",line=dict(width=4),marker=dict(size=6))
 
-    # # Find the max value for each series
-    # max_value_player1 = Card_Distributions['Total Player 1 Cards'].max()
-    # max_value_player2 = Card_Distributions['Total Player 2 Cards'].max()
 
-    # # Get the rounds for each max value
-    # round_max_player1 = Card_Distributions[Card_Distributions['Total Player 1 Cards'] == max_value_player1]['Round Number'].values[0] if max_value_player1 > 0 else 0
-    # round_max_player2 = Card_Distributions[Card_Distributions['Total Player 2 Cards'] == max_value_player2]['Round Number'].values[0] if max_value_player2 > 0 else 0
+    # Find the max value for each series
+    max_value_player1 = Card_Distributions['Total Player 1 Cards'].max()
+    max_value_player2 = Card_Distributions['Total Player 2 Cards'].max()
 
-    # # Add annotations for max values
-    # fig_line.add_annotation(x=round_max_player1, y=max_value_player1, 
-    #                 text=f"Max for P1: {max_value_player1}", showarrow=True, arrowhead=6, arrowcolor="#429EBD", font=dict(color='black', size=14), ax=0, ay=-40)
-    # fig_line.add_annotation(x=round_max_player2, y=max_value_player2, 
-    #                 text=f"Max for P2: {max_value_player2}", showarrow=True, arrowhead=6, arrowcolor="#F7AD19", font=dict(color='black', size=14), ax=0, ay=-40)
+    # Get the rounds for each max value
+    round_max_player1 = Card_Distributions[Card_Distributions['Total Player 1 Cards'] == max_value_player1]['Round Number'].values[0] if max_value_player1 > 0 else 0
+    round_max_player2 = Card_Distributions[Card_Distributions['Total Player 2 Cards'] == max_value_player2]['Round Number'].values[0] if max_value_player2 > 0 else 0
+
+    # Add annotations for max values
+    fig_line.add_annotation(x=round_max_player1, y=max_value_player1, 
+                    text=f"Max for P1: {max_value_player1}", showarrow=True, arrowhead=6, arrowcolor="#429EBD", font=dict(color='black', size=14), ax=0, ay=-40)
+    fig_line.add_annotation(x=round_max_player2, y=max_value_player2, 
+                    text=f"Max for P2: {max_value_player2}", showarrow=True, arrowhead=6, arrowcolor="#F7AD19", font=dict(color='black', size=14), ax=0, ay=-40)
 
 
 
