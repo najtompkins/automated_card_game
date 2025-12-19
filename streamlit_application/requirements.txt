@@ -1,4 +1,4 @@
 pydealer
-plotly
+plotly == 5.20.0
 streamlit-extras == 0.4.2
 streamlit==1.33.0
