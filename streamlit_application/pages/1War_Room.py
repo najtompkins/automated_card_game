@@ -874,11 +874,13 @@ def play_war(sleepy_time = 0.2):
             print("Player 1 Wins the game!")
             # Add another reporting function here when there is a game winner
             st.session_state.game_state = "after_game"
+            st.session_state.visit_stats = True
             break
         elif did_player_2_win == True:
             print("Player 2 Wins the game!")
-            st.session_state.game_state = "after_game"
             # Add another reporting function here when there is a game winner
+            st.session_state.game_state = "after_game"
+            st.session_state.visit_stats = True
             break
 
         st.session_state.playing_game_increment -= 1
@@ -1122,5 +1124,6 @@ elif st.session_state.game_state == "after_game":
 
     # Build the data page using the build_data_page() function
     build_data_page()
-    sleep(1.5)
-    switch_page("Stats_Dashboard")
+    if st.session_state.visit_stats == True:
+        sleep(2)
+        switch_page("Stats_Dashboard")

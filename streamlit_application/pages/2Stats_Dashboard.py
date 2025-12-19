@@ -17,6 +17,8 @@ if "Game_Statistics" not in st.session_state or len(st.session_state.Game_Statis
             switch_page("War_Room")
 else:
 
+    if st.session_state.visit_stats == True:
+        st.session_state.visit_stats = False
     # Assign the game statistics session_State object (pandas DF) to the variable 'Game_Statistics'
     Game_Statistics = st.session_state.Game_Statistics
     # Do the same for Player_1_Statistics
