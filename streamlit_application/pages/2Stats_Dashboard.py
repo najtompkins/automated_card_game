@@ -382,7 +382,7 @@ else:
     # Create a bar chart using streamlit
     # line_chart_placeholder.line_chart(Card_Distributions, x='Round Number', y=['Total Player 1 Cards', 'Total Player 2 Cards'], color=["#429EBD","#F7AD19"])
     fig_line = px.line(Card_Distributions, x='Round Number', y=['Total Cards Dealt In Round'], color_discrete_map={"Total Cards Dealt In Round": "#9AD8E1"}, labels={ "value": "Total Cards", "variable": "Players"}, height=200)
-    fig_line.update_layout(legend=dict(x=0.5, xanchor="center", y=1.0, yanchor="bottom", orientation="h"), legend_title_text="")
+    fig_line.update_layout(legend=dict(x=0.5, xanchor="center", y=1.0, yanchor="bottom", orientation="h"), legend_title_text="").update_traces(mode='lines', line=dict(width=2))
     st.markdown(f"<h4 style='text-align:center;font-size:28px;'>There were {Game_Statistics['Total Wars In Game'].max()} Wars during the game.</h4>", unsafe_allow_html=True)
     st.plotly_chart(fig_line, use_container_width=True)
 
