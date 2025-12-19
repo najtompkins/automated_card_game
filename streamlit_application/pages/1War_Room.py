@@ -939,27 +939,27 @@ def build_data_page():
 
     fig_line = px.line(Card_Distributions, x='Round Number', y=['Total Player 1 Cards', 'Total Player 2 Cards'], color_discrete_map={"Total Player 1 Cards": "#429EBD", "Total Player 2 Cards": "#F7AD19"}, labels={ "value": "Total Cards", "variable": "Players"})
 
-    # Update legend names
-    fig_line.for_each_trace(lambda t: t.update(name=t.name.replace("Total Player 1 Cards", "Player 1's Total Cards")))
-    fig_line.for_each_trace(lambda t: t.update(name=t.name.replace("Total Player 2 Cards", "Player 2's Total Cards")))
+    # # Update legend names
+    # fig_line.for_each_trace(lambda t: t.update(name=t.name.replace("Total Player 1 Cards", "Player 1's Total Cards")))
+    # fig_line.for_each_trace(lambda t: t.update(name=t.name.replace("Total Player 2 Cards", "Player 2's Total Cards")))
 
-    # Find the max value for each series
-    max_value_player1 = Card_Distributions['Total Player 1 Cards'].max()
-    max_value_player2 = Card_Distributions['Total Player 2 Cards'].max()
+    # # Find the max value for each series
+    # max_value_player1 = Card_Distributions['Total Player 1 Cards'].max()
+    # max_value_player2 = Card_Distributions['Total Player 2 Cards'].max()
 
-    # Get the rounds for each max value
-    round_max_player1 = Card_Distributions[Card_Distributions['Total Player 1 Cards'] == max_value_player1]['Round Number'].values[0] if max_value_player1 > 0 else 0
-    round_max_player2 = Card_Distributions[Card_Distributions['Total Player 2 Cards'] == max_value_player2]['Round Number'].values[0] if max_value_player2 > 0 else 0
+    # # Get the rounds for each max value
+    # round_max_player1 = Card_Distributions[Card_Distributions['Total Player 1 Cards'] == max_value_player1]['Round Number'].values[0] if max_value_player1 > 0 else 0
+    # round_max_player2 = Card_Distributions[Card_Distributions['Total Player 2 Cards'] == max_value_player2]['Round Number'].values[0] if max_value_player2 > 0 else 0
 
-    # Add annotations for max values
-    fig_line.add_annotation(x=round_max_player1, y=max_value_player1, 
-                    text=f"Max for P1: {max_value_player1}", showarrow=True, arrowhead=6, arrowcolor="#429EBD", font=dict(color='black', size=14), ax=0, ay=-40)
-    fig_line.add_annotation(x=round_max_player2, y=max_value_player2, 
-                    text=f"Max for P2: {max_value_player2}", showarrow=True, arrowhead=6, arrowcolor="#F7AD19", font=dict(color='black', size=14), ax=0, ay=-40)
+    # # Add annotations for max values
+    # fig_line.add_annotation(x=round_max_player1, y=max_value_player1, 
+    #                 text=f"Max for P1: {max_value_player1}", showarrow=True, arrowhead=6, arrowcolor="#429EBD", font=dict(color='black', size=14), ax=0, ay=-40)
+    # fig_line.add_annotation(x=round_max_player2, y=max_value_player2, 
+    #                 text=f"Max for P2: {max_value_player2}", showarrow=True, arrowhead=6, arrowcolor="#F7AD19", font=dict(color='black', size=14), ax=0, ay=-40)
 
 
 
-    fig_line.update_layout(legend=dict(x=0.5, xanchor="center", y=1.0, yanchor="bottom", orientation="h"), legend_title_text="")
+    # fig_line.update_layout(legend=dict(x=0.5, xanchor="center", y=1.0, yanchor="bottom", orientation="h"), legend_title_text="")
 
     line_chart_placeholder.plotly_chart(fig_line, use_container_width=True)
 
@@ -1110,13 +1110,13 @@ elif st.session_state.game_state == "after_game":
     #     stats_dashboard_button_placeholder = st.empty()
 
     # These placeholders keeps the charts updating in the same spot instead of creating new ones above the old ones for every round of the game.
-    # co1, co2 = st.columns(2)
-    # with co1:
-    #     pie_chart_placeholder = st.empty()
-    # with co2:
-    #     bar_chart_placeholder = st.empty()
+    co1, co2 = st.columns(2)
+    with co1:
+        pie_chart_placeholder = st.empty()
+    with co2:
+        bar_chart_placeholder = st.empty()
 
-    # line_chart_placeholder = st.empty()
+    line_chart_placeholder = st.empty()
 
     # Build the data page using the build_data_page() function
     build_data_page()
