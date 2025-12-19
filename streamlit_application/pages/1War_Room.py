@@ -944,7 +944,7 @@ def build_data_page():
     # Update legend names
     fig_line.for_each_trace(lambda t: t.update(name=t.name.replace("Total Player 1 Cards", "Player 1's Total Cards")))
     fig_line.for_each_trace(lambda t: t.update(name=t.name.replace("Total Player 2 Cards", "Player 2's Total Cards")))
-    fig_line.update_traces(mode="lines+markers",line=dict(width=4),marker=dict(size=6))
+    # fig_line.update_traces(mode="lines+markers",line=dict(width=4),marker=dict(size=6))
 
 
     # Find the max value for each series
