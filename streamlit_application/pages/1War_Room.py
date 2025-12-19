@@ -1122,3 +1122,5 @@ elif st.session_state.game_state == "after_game":
 
     # Build the data page using the build_data_page() function
     build_data_page()
+    sleep(1.5)
+    switch_page("Stats_Dashboard")
